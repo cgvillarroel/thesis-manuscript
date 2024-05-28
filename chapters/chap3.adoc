@@ -1,0 +1,48 @@
+[#methodology]
+== Chapter 3: Methodology
+
+This chapter details the specific processes involved in achieving the objectives outlined in <<objectives>>. This study is modeled after the work of Paudyal et al. cite:[paudyal19]. As such, much of this study follows similar methods. However, it also introduces modifications aimed to improve the model, specifically in the context of Filipino Sign Language. Other modifications are also introduced to take advantage of better technologies that have been made available since the publishing of the aforementioned previous work.
+
+[#data]
+=== Data Collection
+
+This study will be using a public dataset known as FSL-105. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips.
+
+[#preprocessing]
+=== Data Preprocessing
+
+The data described in <<data>> will not be directly used by the model. Instead of processing videos, the model will process pose data estimated from videos. This pose data will be in the form of keypoints, or the locations of the signer's joints within the video. Unlike the work of Paudyal et al. cite:[paudyal19], which relies on PoseNet, this will be done with the use Google's MediaPipe framework. However, this data may still contain noise in the form of varying scale and location introduced by variations in camera location and settings. To account for this, the data will be normalized; joints will be scaled and translated to be a consistent size within the center of the frame.
+
+[#model]
+=== Model Development
+
+Paudyal et al. cite:[paudyal19] showcased the effectiveness of a model composed of three modules, each of which analyzes a specific component of gestures: hand location, movement, and shape. This study introduces a fourth module for facial expressions, as these are an important component in Filipino Sign Language (Montefalcon et al., 2022). These modules produce a vector that describes the gesture performed. To determine the correctness of a learner's gesture, it will be compared to a reference gesture using measures of similarity such as a cosine function or root mean squared error. Failure to meet a certain threshold of similarity set for each module will provide feedback to the learner.
+
+Each module is developed independently. However, in the context of an application, these modules are invoked sequentially: a module is only invoked in the case that the preceding module determines that the gesture is correct. This design is intentional due to the following factors. First, running only one module at a time when needed reduces computational load; this allows for faster feedback. Second, it allows learners to focus on incremental improvements. The gesture is deemed correct if all modules determine that the gesture is correct.
+
+Other than allowing for detailed feedback, the use of feature extraction methods, as opposed to more sophisticated machine learning models, allows for the trivial addition of gestures and avoids requiring extensive datasets. Rather than having to retrain models when new gestures are added, new reference gestures simply need to be added to compare the learner's gestures to.
+
+[#location]
+==== Hand Location
+
+To determine the signer's hand location, the frame will be divided into six sections based on the location of the signer's shoulders. The presence of hands will be tracked within each bucket throughout the gesture, resulting in a vector. The resulting vector from the learner's gesture will then be compared to the reference gesture using a cosine function.
+
+[#movement]
+==== Hand Movement
+
+To determine the correctness of the hand movement, dynamic time warping between the learner's gesture and the reference gesture will be performed. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths. To address this, longer videos will be down-sampled to keep lengths consistent.
+
+[#shape]
+==== Hand Shape
+
+Using the pose estimation obtained in <<preprocessing>>, the videos will be cropped to focus on the signer's hands. At this point, Paudyal et al. cite:[paudyal19] use a convolutional neural network for feature extraction. However, this study will take advantage of MediaPipe's gesture recognition framework to estimate the hand shape as well. Similar preprocessing steps to normalize the scale and position of the obtained hand shape will be performed. The similarity of between the learner's gesture and the reference gesture will be determined by the root mean squared error (RMSE).
+
+[#face]
+==== Facial Expressions
+
+Montefalcon et al. (2022) showed that facial expressions are an important part of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and the RMSE between the learner's gesture and the reference gesture will be calculated.
+
+[#assessment]
+=== Model Assessment
+
+Because this study will not create an application to showcase the model like Paudyal et al. cite:[paudyal19] did, there will be no real-world learner data points. Instead, this will be simulated by using excess videos from the dataset. Videos that will not be used as reference videos will serve as samples of learners' correct execution, and videos will be randomly assigned to other labels to serve as samples of incorrect execution. The model will then determine whether the signs are correctly executed or not. The accuracy, precision, recall, and F1 scores will be calculated and analyzed.

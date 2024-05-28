@@ -1,0 +1,17 @@
+data-dir: .
+pdf-engine: xelatex
+from: docbook
+input-file: build/manuscript.xml
+output-file: build/manuscript.tex
+standalone: true
+bibliography: references.bib
+variables:
+  documentclass: report
+  geometry: margin=1in
+  fontsize: 12pt
+  linestretch: 2.0
+  indent: true
+  toc: true
+  toc-depth: 3
+  lof: true
+  lot: true

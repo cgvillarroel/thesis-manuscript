@@ -1,0 +1,13 @@
+*
+
+!/manuscript.adoc
+!/chapters/
+!/chapters/*
+!/images/
+!/images/*
+!/references.bib
+
+!/.gitignore
+!/opts.yaml
+!/install.ps1
+!/build.ps1

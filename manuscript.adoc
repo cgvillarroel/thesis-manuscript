@@ -1,0 +1,15 @@
+= A feedback framework for Filipino sign language learning
+Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclopez@student.apc.edu.ph>; James Alfafara <jsalfafara@student.apc.edu.ph>; Jeb Vincent Cajayon <jgcajayon@student.apc.edu.ph>
+:bibtex-file: references.bib
+:bibtex-style: ieee
+:bibtex-order: appearance
+:bibtex-format: bibtex
+:toc:
+
+include::chapters/chap1.adoc[]
+
+include::chapters/chap2.adoc[]
+
+include::chapters/chap3.adoc[]
+
+bibliography::[]

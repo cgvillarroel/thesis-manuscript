@@ -1,0 +1,44 @@
+[#rrl]
+== Chapter 2: Review of Related Literature
+
+This chapter investigates literature that explore similar problems and solutions. It provides an overview of sign language recognition (SLR) technologies and their goals and techniques. It begins with general technologies and narrows towards the scope of this study: providing feedback for learners of Filipino Sign Language (FSL).
+
+[#theoretical]
+=== Theoretical Framework
+
+This study focuses on determining the correctness of sign language gestures and providing feedback. This may fall under sign language recognition; as such, it falls under the general areas of computer vision and human-computer interactions.
+
+.Taxonomy of Sign Language Models cite:[rastgoo21]
+[#taxonomy]
+image::images/taxonomy.png[taxonomy]
+
+Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition techniques and created a taxonomy to classify them. Of interest is the classification according to input modality, as seen in <<taxonomy,Figure 1>>. This study is interested in techniques that avoid the use of specialized technologies, such as depth sensors. As such, works discussed here fall under color-based techniques. However, some may also be classified as skeleton-based techniques, as they rely on external dependencies to transform images or videos into keypoints. This study is also specifically interested in dynamic recognition, which focuses on videos, but some works on static recognition, which focuses on still images, are also discussed.
+
+[#technical]
+=== Technical Framework
+
+[#framework]
+.Technical Framework
+image::images/framework.png[framework]
+
+This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<framework,Figure 2>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods. More details are described in <<methodology>>.
+
+[#slr]
+=== Sign Language Recognition
+
+[#fslr]
+=== Filipino Sign Language Recognition
+
+[#tools]
+=== Explainable Artificial Intelligence Techniques for Sign Language Recognition
+
+Most techniques identified have focused on the translation of gestures into text using deep learning techniques. Though powerful, these techniques provide little insight as to the internal mechanisms used to determine the gesture's meaning and provide feedback. Some studies address this using explainable AI (XAI) techniques. Those that fall under a similar scope as discussed in <<theoretical>> are the works of Kothadiya et al. (2023) and Paudyal et al. cite:[paudyal19].
+
+Kothadiya et al. cite:[kothadiya23] apply XAI techniques to deep learning models, exposing the areas of the images that were most influential to the model. However, the feedback these provided are limited to a heatmap overlay. While this accomplishes their goals, it does not provide the detailed feedback this study aims to achieve.
+
+Paudyal et al. cite:[paudyal19] share the most similar goals to this study. Rather than translating gestures into text like other works discussed here, their study focuses on providing feedback to learners. They do this using a series of feature extraction techniques that focus on hand location, movement, and shape. However, as Montefalcon et al. cite:[montefalcon23] showed, facial expressions are an important component of FSL, and Paudyal et al. cite:[paudyal19] fail to account for this.
+
+[#synthesis]
+=== Synthesis
+
+Most sign language technologies identified in this work focuses specifically on translating gestures into text. Many also use deep learning techniques, allowing for impressive translation capabilities. However, these do little in regard to providing feedback to learners. Paudyal et al. cite:[paudyal19] come closest to achieving the goals of this study, using a series of feature extraction techniques to determine the correctness and provide feedback. However, it fails to consider other components of gestures that are important to Filipino Sign Language. As such, this study will be modeled after the work of Paudyal et al. cite:[paudyal19], with modifications to account for facial expressions in Filipino Sign Language.

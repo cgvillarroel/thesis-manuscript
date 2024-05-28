@@ -1,0 +1,53 @@
+== Chapter 1: Introduction
+
+This chapter provides context regarding the importance of the subject matter of the study. It provides an overview of the current state of Filipino Sign Language technologies, the problems associated with them, and the objectives this study aims to achieve to address them. It also clarifies scope of the study.
+
+[#context]
+=== Context of the Study
+
+Communication is a fundamental part of being a human. It is the foundation of human relationships, and humans use communication as a tool to understand, influence and build relationships with others cite:[peace20]. However, in the context of communication in the Philippines, it is not limited to the country’s 186 spoken languages cite:[borlongan23]. The Filipino Sign Language (FSL) has been recognized as the country’s national sign language since 2018 through the Filipino Sign Language (FSL) Act. This law mandates the use of FSL in schools, broadcast media, and workplaces where there are deaf individuals cite:[tinio18]. The implementation of the FSL Act aims to bridge the gap between Filipino Deaf community and their hearing counterparts. Despite the goal to bridge said gap, only a limited number of institutions in the Philippines offer sign language classes, showing its minimal accessibility to hearing Filipinos. Most Filipinos have yet to learn and comprehend FSL cite:[cabutaje23]. The implemented law has a long way to go in providing true inclusivity and accessibility to address the barriers between the deaf and hearing community.
+
+With that said, the use of modern technology may be able to address the barriers of communication. In recent years, research on Sign Language Recognition (SLR) has been conducted to develop an artificial intelligence (AI) to aid in SLR, as detailed in <<rrl>>. Much literature has been dedicated to creating models that translate gestures into text. Many of these use sophisticated deep learning models, like recurrent neural networks, and show promising results. This is true even for FSL, where research is still somewhat premature due to the lack of extensive datasets. However, few literature branches out into other applications. For example, tools that evaluate the correctness of pronunciation exist for spoken languages, like Duolingo or Rosetta Stone. Few literature aim to provides tools that similar functionality for sign languages, including FSL.
+
+[#problem]
+=== Statement of the Problem
+
+While there exist resources for learning FSL, there are no tools that provide feedback in a similar fashion that Duolingo and Rosetta Stone do for spoken languages. Gesture-to-text translators exist, but they provide no feedback for learners. Some models have been developed for other sign languages. However, these either do not provide feedback useful to learners or fail to take into account additional component of gestures that are important to FSL specifically (i.e., facial features).
+
+[#questions]
+=== Research Questions
+
+This study intends to answer the following questions:
+
+. What improvements can be made to models meant to provide feedback for sign language learning, specifically in the scope of Filipino Sign Language?
+. What effects would the inclusion of facial features have on the effectiveness of the model?
+
+[#objectives]
+=== Research Objectives
+
+This study aims to improve upon previous research that develop feedback models for sign language learners, specifically in the scope of Filipino Sign Language. Specifically, it aims to:
+
+. Develop a model that determines the correctness of Filipino Sign Language gestures performed by learners and provides feedback in the case of errors.
+. Determine the effectiveness of the developed model in terms of statistical metrics such as accuracy, precision, and recall.
+. Determine the effects of including or excluding facial features in the model.
+
+[#scope]
+=== Scope and Limitations
+
+This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines the correctness of a gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback about its correctness.
+
+Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users.
+
+[#significance]
+=== Significance of the Study
+
+This study will benefit the following:
+
+Filipino Deaf Communities.::
+Developing a FSL Recognition model can contribute to bridging the gap between the deaf and hearing communities. The deaf community can be assisted by this technology to improve their ability to communicate to those who do not know FSL.
+
+Technology Developers.::
+Research in FSL can advance the current state of technologies made specifically for it. This can assist in future development of applications and devices that will aid different types of users towards better communication between the deaf and hearing community.
+
+Research and Academic Communities.::
+Research in FSL Recognition is in its premature stages, meaning that it has only started exploring possible solutions to the problem at least a decade ago. Results gathered in this study can help with future research and further advancements to the understanding of FSL and FSL Recognition.
