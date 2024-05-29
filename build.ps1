@@ -8,7 +8,7 @@ write-host "Done"
 
 # CONVERT TO LATEX
 write-host -nonewline "Converting to DocBook... `t`t"
-asciidoctor -r asciidoctor-bibtex -b docbook5 manuscript.adoc -o build/manuscript.xml
+asciidoctor -r asciidoctor-bibtex -b docbook5 src/manuscript.adoc -o build/manuscript.xml
 if (-not $?) { exit 1 }
 write-host "Done"
 

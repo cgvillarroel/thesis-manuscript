@@ -1,14 +1,14 @@
 *
 
 !/manuscript.adoc
-!/chapters/
-!/chapters/*
+!/src/
+!/src/*
 !/images/
 !/images/*
 !/references.bib
-!/cover.pdf
 
 !/.gitignore
+!/templates/
+!/templates/*
 !/opts.yaml
 !/build.ps1
-!/latex.template

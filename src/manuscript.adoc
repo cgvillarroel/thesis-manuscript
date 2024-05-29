@@ -6,10 +6,10 @@ Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclope
 :bibtex-format: bibtex
 :toc:
 
-include::chapters/chap1.adoc[]
+include::chap1.adoc[]
 
-include::chapters/chap2.adoc[]
+include::chap2.adoc[]
 
-include::chapters/chap3.adoc[]
+include::chap3.adoc[]
 
 bibliography::[]

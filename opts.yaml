@@ -1,7 +1,7 @@
 data-dir: .
 pdf-engine: xelatex
 from: docbook
-template: latex.template
+template: templates/latex.template
 input-file: build/manuscript.xml
 output-file: build/manuscript.tex
 standalone: true
