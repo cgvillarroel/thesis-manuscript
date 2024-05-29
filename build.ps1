@@ -44,7 +44,7 @@ write-host "Done"
 
 # TITLE PAGE (I don't wanna recreate this in latex)
 write-host -nonewline "Adding cover page... `t`t`t"
-pdftk cover.pdf build/manuscript.pdf cat output output/manuscript.pdf
+pdftk templates/cover.pdf build/manuscript.pdf cat output output/manuscript.pdf
 write-host "Done`n"
 
 write-host "Done building. See ./output/manuscript.pdf"
