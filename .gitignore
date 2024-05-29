@@ -6,8 +6,9 @@
 !/images/
 !/images/*
 !/references.bib
+!/cover.pdf
 
 !/.gitignore
 !/opts.yaml
-!/install.ps1
 !/build.ps1
+!/latex.template

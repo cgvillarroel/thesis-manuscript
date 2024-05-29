@@ -1,6 +1,7 @@
 data-dir: .
 pdf-engine: xelatex
 from: docbook
+template: latex.template
 input-file: build/manuscript.xml
 output-file: build/manuscript.tex
 standalone: true
@@ -15,3 +16,7 @@ variables:
   toc-depth: 3
   lof: true
   lot: true
+  header-includes: |
+    \usepackage{fontspec}
+    \setmainfont{Arial}
+    \setlength\parindent{0.5in}
