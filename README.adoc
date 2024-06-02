@@ -21,7 +21,7 @@ asciidoc -> [asciidoctor] -> docbook -> [pandoc] -> latex -> [xelatex] -> pdf
 
 == Dependencies/Setup
 
-Most dependencies are installable using https://scoop.sh[Scoop] (see `dependencies.json`)
+Most dependencies are installable using https://scoop.sh[Scoop].
 
 [source,powershell]
 ----
