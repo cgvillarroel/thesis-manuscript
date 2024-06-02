@@ -19,9 +19,9 @@ The build pipeline goes like this:
 asciidoc -> [asciidoctor] -> docbook -> [pandoc] -> latex -> [xelatex] -> pdf
 ----
 
-== Depedencies/Setup
+== Dependencies/Setup
 
-Most depedencies are installable using https://scoop.sh[Scoop] (see `dependencies.json`)
+Most dependencies are installable using https://scoop.sh[Scoop] (see `dependencies.json`)
 
 [source,powershell]
 ----
