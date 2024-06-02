@@ -4,8 +4,64 @@ Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclope
 :bibtex-style: ieee
 :bibtex-order: appearance
 :bibtex-format: bibtex
-:fig-caption: Fig.
+:fig-label: Fig.
 :toc:
+
+////
+== HOW TO MAKE A FIGURE
+
+[#tldr]
+=== TL;DR
+
+----
+:fig-label-name: {fig-caption} {counter:fig}   // the text we'll use in cross-references (converts to, for example, `Fig. 1`)
+.{fig-label-name}. Caption                     // caption that shows up under the figure, uses the attribute above (converts to `Fig. 1. Caption`)
+[#fig-name]                                    // anchor you'll use in references (use like this: <<fig-name,{fig-ref-name}>>)
+image::images/name.png[alt text]               // the actual figure
+
+Reference like this: <<fig-name,{fig-label-name}>>
+----
+
+=== Explanation
+
+We use a weird pipeline to convert our asciidoc to a properly formatted pdf:
+
+----
+asciidoc -> docbook -> latex -> pdf
+----
+
+Converting to docbook doesn't properly expand figure labels to `Fig. 1`, which is what we need. So we manually use a counter to automatically count figures.
+
+First, we generate a figure label with a counter, then store it in an attribute:
+
+----
+:fig-label-name: {fig-label} {counter:fig}
+       ^              ^              ^- This is special attribute called a counter (to keep track which figure this is)
+       |              |- This is how you use attributes (defined here on line 7)
+       |- This is how you define an attribute. It's like a variable (you can store stuff in it)
+----
+
+We use this attribute in the caption:
+
+----
+.{fig-label-name}. Caption
+^       ^- We use the attribute we created above
+|- How you caption things
+----
+
+We'll also use this attribute when making a reference:
+
+----
+[#fig-name]                       <- This is an anchor. It's what you make a reference to
+image::images/name.png[alt text]  <- This is the actual figure
+
+<<fig-name,{fig-label-name}>>
+     ^              ^- The text to display (the attribute we created above)
+     |- What anchor to link to
+----
+
+Putting it all together, we get what we see in <<tldr>>.
+////
 
 include::chap1.adoc[]
 
