@@ -12,3 +12,4 @@
 !/templates/*
 !/opts.yaml
 !/build.ps1
+!/README.adoc
