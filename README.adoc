@@ -30,7 +30,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
 # install dependencies available on scoop
-scoop install dependencies.json
+scoop install pandoc miktex msys2 ruby
 ----
 
 You need to set up ruby for the rest:
