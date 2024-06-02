@@ -1,7 +1,6 @@
 data-dir: .
 pdf-engine: xelatex
 from: docbook
-template: templates/latex.template
 input-file: build/manuscript.xml
 output-file: build/manuscript.tex
 standalone: true
@@ -12,11 +11,41 @@ variables:
   fontsize: 12pt
   linestretch: 2.0
   indent: true
-  toc: true
-  toc-depth: 3
-  lof: true
-  lot: true
+  numbersections: true
+  title: false
   header-includes: |
+    \usepackage{tocbibind}
+    \renewcommand{\contentsname}{Table of Contents}
     \usepackage{fontspec}
     \setmainfont{Arial}
     \setlength\parindent{0.5in}
+    \setlength\parskip{1em}
+    \usepackage{caption}
+    \captionsetup[figure]{labelformat=empty}
+    \usepackage{titlesec}
+    \titleformat{\chapter}[display]{\centering\normalsize\bfseries}{\vspace{-4em}CHAPTER \Roman{chapter}\\*}{-3.5em}{\MakeUppercase}[]
+    \titleformat{\section}{\normalsize\bfseries}{\thesection\hspace{1em}}{0em}{\MakeUppercase}[]
+    \titleformat{\subsection}{\normalsize\bfseries\itshape}{\thesubsection\hspace{1em}}{0em}{\MakeUppercase}[]
+    \titlespacing*{\chapter}{0em}{1em}{0em}
+    \titlespacing*{\section}{0em}{1em}{0em}
+    \titlespacing*{\subsection}{0em}{1em}{0em}
+    \usepackage{fancyhdr}
+    \fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[R]{\thepage}
+    \renewcommand{\headrulewidth}{0em}
+    }
+  include-before: |
+    \pagestyle{plain}
+    \clearpage
+    \pagenumbering{roman}
+    \setcounter{page}{2}
+    \setcounter{tocdepth}{3}
+    \tableofcontents
+    \let\oldnumberline\numberline
+    \renewcommand{\numberline}[1]{\hspace*{-1.5em}}
+    \listoffigures
+    % \listoftables
+    \let\numberline\oldnumberline
+    \clearpage
+    \pagenumbering{arabic}

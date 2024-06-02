@@ -1,5 +1,5 @@
 [#rrl]
-== Chapter 2: Review of Related Literature
+== Review of Related Literature
 
 This chapter investigates literature that explore similar problems and solutions. It provides an overview of sign language recognition (SLR) technologies and their goals and techniques. It begins with general technologies and narrows towards the scope of this study: providing feedback for learners of Filipino Sign Language (FSL).
 
@@ -8,20 +8,24 @@ This chapter investigates literature that explore similar problems and solutions
 
 This study focuses on determining the correctness of sign language gestures and providing feedback. This may fall under sign language recognition; as such, it falls under the general areas of computer vision and human-computer interactions.
 
-.Taxonomy of Sign Language Models cite:[rastgoo21]
-[#taxonomy]
+:fig-ref-taxonomy: {fig-caption} {counter:fig}
+.{fig-ref-taxonomy}. Taxonomy of Sign Language Models cite:[rastgoo21]
+[#fig-taxonomy]
 image::images/taxonomy.png[taxonomy]
 
-Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition techniques and created a taxonomy to classify them. Of interest is the classification according to input modality, as seen in <<taxonomy,Figure 1>>. This study is interested in techniques that avoid the use of specialized technologies, such as depth sensors. As such, works discussed here fall under color-based techniques. However, some may also be classified as skeleton-based techniques, as they rely on external dependencies to transform images or videos into keypoints. This study is also specifically interested in dynamic recognition, which focuses on videos, but some works on static recognition, which focuses on still images, are also discussed.
+Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition techniques and created a taxonomy to classify them, as seen in <<fig-taxonomy,{fig-ref-taxonomy}>>. Of interest is the classification according to input modality. This study is interested in techniques that avoid the use of specialized technologies, such as depth sensors. As such, works discussed here fall under color-based techniques. However, some may also be classified as skeleton-based techniques, as they rely on external dependencies to transform images or videos into keypoints. This study is also specifically interested in dynamic recognition, which focuses on videos, but some works on static recognition, which focuses on still images, are also discussed.
+
+:fig-ref-framework: {fig-caption} {counter:fig}
+.{fig-ref-framework}. Techniques and Technologies
+[#fig-framework]
+image::images/framework.png[framework{counter:fig}]
+
+This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<fig-framework,{fig-ref-framework}>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods. More details are described in <<methodology>>.
 
 [#technical]
 === Technical Framework
 
-[#framework]
-.Technical Framework
-image::images/framework.png[framework]
-
-This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<framework,Figure 2>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods. More details are described in <<methodology>>.
+While <<theoretical>> discusses the techniques used within the model, this section discusses the technologies involved.
 
 [#slr]
 === Sign Language Recognition

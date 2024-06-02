@@ -1,4 +1,5 @@
-== Chapter 1: Introduction
+[#intro]
+== Introduction
 
 This chapter provides context regarding the importance of the subject matter of the study. It provides an overview of the current state of Filipino Sign Language technologies, the problems associated with them, and the objectives this study aims to achieve to address them. It also clarifies scope of the study.
 
