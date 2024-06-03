@@ -13,7 +13,7 @@ An install script is provided for convenience:
 
 [NOTE]
 ====
-You must first update MiKTeX by doing the following:
+After installing, before trying to do your first build, you must first update MiKTeX by doing the following:
 
 * Open the MiKTeX Console (start menu search)
 * Click `+Check for updates+`
