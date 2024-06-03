@@ -12,7 +12,7 @@ This study focuses on determining the correctness of sign language gestures and 
 :fig-label-taxonomy: {fig-label} {counter:fig}
 .{fig-label-taxonomy}. Taxonomy of Sign Language Models cite:[rastgoo21]
 [#fig-taxonomy]
-image::images/taxonomy.png[taxonomy]
+image::../images/taxonomy.png[taxonomy]
 
 Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition techniques and created a taxonomy to classify them, as seen in <<fig-taxonomy,{fig-label-taxonomy}>>. Of interest is the classification according to input modality. This study is interested in techniques that avoid the use of specialized technologies, such as depth sensors. As such, works discussed here fall under color-based techniques. However, some may also be classified as skeleton-based techniques, as they rely on external dependencies to transform images or videos into keypoints. This study is also specifically interested in dynamic recognition, which focuses on videos, but some works on static recognition, which focuses on still images, are also discussed.
 
@@ -20,7 +20,7 @@ Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition 
 :fig-label-framework: {fig-label} {counter:fig}
 .{fig-label-framework}. Techniques and Technologies
 [#fig-framework]
-image::images/framework.png[framework{counter:fig}]
+image::../images/framework.png[framework{counter:fig}]
 
 This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<fig-framework,{fig-label-framework}>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods. More details are described in <<methodology>>.
 

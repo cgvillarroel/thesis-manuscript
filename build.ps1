@@ -23,24 +23,34 @@ write-host -nonewline "Tweaking LaTeX file... `t`t`t"
 write-host "Done"
 
 # BUILD LATEX
-write-host -nonewline "Building LaTeX (1st pass)... `t`t"
-xelatex build/manuscript.tex -aux-directory=build -output-directory=build > $null
-if (-not $?) { exit 1 }
-write-host "Done"
+copy-item references.bib build
+cd build
+try
+{
+	write-host -nonewline "Building LaTeX (1st pass)... `t`t"
+	xelatex manuscript.tex > $null
+	if (-not $?) { exit 1 }
+	write-host "Done"
 
-write-host -nonewline "Processing citations... `t`t"
-bibtex build/manuscript > $null
-if (-not $?) { exit 1 }
-write-host "Done"
+	write-host -nonewline "Processing citations... `t`t"
+	bibtex manuscript > $null
+	if (-not $?) { exit 1 }
+	write-host "Done"
 
-write-host -nonewline "Building LaTeX (2nd pass)... `t`t"
-xelatex build/manuscript.tex -aux-directory=build -output-directory=build > $null
-write-host "Done"
+	write-host -nonewline "Building LaTeX (2nd pass)... `t`t"
+	xelatex manuscript.tex > $null
+	write-host "Done"
 
-write-host -nonewline "Building LaTeX (final pass)... `t`t"
-xelatex build/manuscript.tex -aux-directory=build -output-directory=build > $null
-if (-not $?) { exit 1 }
-write-host "Done"
+	write-host -nonewline "Building LaTeX (final pass)... `t`t"
+	xelatex manuscript.tex > $null
+	if (-not $?) { exit 1 }
+	write-host "Done"
+}
+finally
+{
+	cd ..
+}
+
 
 # TITLE PAGE (I don't wanna recreate this in latex)
 write-host -nonewline "Adding cover page... `t`t`t"
