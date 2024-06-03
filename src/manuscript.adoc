@@ -3,9 +3,10 @@ Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclope
 :bibtex-file: references.bib
 :bibtex-style: ieee
 :bibtex-order: appearance
-:bibtex-format: bibtex
+:figure-caption!:
 :fig-label: Fig.
-:toc:
+ifdef::backend-docbook5[:bibtex-format: bibtex]
+ifdef::backend-html5[:toc:]
 
 ////
 == HOW TO MAKE A FIGURE
@@ -68,5 +69,7 @@ include::chap1.adoc[]
 include::chap2.adoc[]
 
 include::chap3.adoc[]
+
+ifdef::backend-html5[== References]
 
 bibliography::[]
