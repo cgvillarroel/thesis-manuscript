@@ -3,7 +3,7 @@ write-host -nonewline "Cleaning old build artifacts... `t"
 new-item -type directory build -erroraction ignore > $null
 new-item -type directory output -erroraction ignore > $null
 remove-item build/* -erroraction ignore > $null
-remove-item output/* -erroraction ignore > $null
+remove-item output/manuscript.pdf -erroraction ignore > $null
 write-host "Done"
 
 # CONVERT TO LATEX

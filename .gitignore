@@ -1,16 +1,16 @@
 *
 
-!/manuscript.adoc
-!/src/
-!/src/*
 !/images/
 !/images/*
+!/src/
+!/src/*
 !/references.bib
 
-!/.gitignore
 !/templates/
 !/templates/*
-!/opts.yaml
+!/.gitignore
+!/build-html.ps1
 !/build.ps1
 !/install.ps1
+!/opts.yaml
 !/README.adoc
