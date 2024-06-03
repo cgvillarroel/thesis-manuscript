@@ -2,6 +2,36 @@
 
 Thesis manuscript written in AsciiDoc with conversion configs/scripts.
 
+== Dependencies/Setup
+
+An install script is provided for convenience:
+
+[source,powershell]
+----
+./install
+----
+
+[NOTE]
+====
+You must first update MiKTeX by doing the following:
+
+* Open the MiKTeX Console (start menu search)
+* Click `+Check for updates+`
+* Once done, go to the `+Updates+` tab and click `+Update now+`
+====
+
+This will install the following:
+
+* Scoop
+** pandoc
+** pdftk
+** miktex
+** msys2
+** ruby
+* Ruby
+** asciidoctor
+** asciidoctor-bibtex
+
 == Building
 
 A build script is provided for convenience:
@@ -11,42 +41,16 @@ A build script is provided for convenience:
 ./build
 ----
 
-Running this for the first time will prompt you to install LaTeX packages. *Install all of them*.
+[NOTE]
+====
+Running this for the first time will prompt you to install LaTeX packages.
+
+* *Install all of them* (you can uncheck the `+always show this dialogue+` option)
+* This will take a few minutes, since you have to download and install all the needed packages. *Do not interrupt this*
+====
 
 The build pipeline goes like this:
 
 ----
 asciidoc -> [asciidoctor] -> docbook -> [pandoc] -> latex -> [xelatex] -> pdf
-----
-
-== Dependencies/Setup
-
-Most dependencies are installable using https://scoop.sh[Scoop].
-
-[source,powershell]
-----
-# install scoop
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-
-# install dependencies available on scoop
-scoop install pandoc pdftk miktex msys2 ruby
-----
-
-You need to set up ruby for the rest:
-
-[source,powershell]
-----
-ridk install
-----
-
-This will prompt you what to install. *Enter 3*.
-
-Install the rest of the dependencies:
-
-[source,powershell]
-----
-# install asciidoctor & extension
-gem install asciidoctor
-gem install asciidoctor-bibtex
 ----
