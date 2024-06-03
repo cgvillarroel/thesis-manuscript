@@ -4,7 +4,7 @@
 This chapter investigates literature that explore similar problems and solutions. It provides an overview of sign language recognition (SLR) technologies and their goals and techniques. It begins with general technologies and narrows towards the scope of this study: providing feedback for learners of Filipino Sign Language (FSL).
 
 [#theoretical]
-=== Theoretical Framework
+=== Theoretical Background
 
 This study focuses on determining the correctness of sign language gestures and providing feedback. This may fall under sign language recognition; as such, it falls under the general areas of computer vision and human-computer interactions.
 
@@ -22,12 +22,12 @@ Rastgoo et al. cite:[rastgoo21] performed a survey on sign language recognition 
 [#fig-framework]
 image::../images/framework.png[framework{counter:fig}]
 
-This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<fig-framework,{fig-label-framework}>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods. More details are described in <<methodology>>.
+This study is modeled after the work of Paudyal et al. cite:[paudyal19], which has the most similar goals and scope. <<fig-framework,{fig-label-framework}>> shows the framework of the model to be created. It compares a learner's gestures with that of a reference video using several feature extraction methods, namely: location bucketing, dynamic time warping, keypoint estimation. More details are described in <<model>>.
 
 [#technical]
-=== Technical Framework
+=== Technical Background
 
-While <<theoretical>> discusses the techniques used within the model, this section discusses the technologies involved.
+While <<theoretical>> discusses the techniques used within the model, this section discusses the technologies involved. Python cite:[python] will be used due to the availability of libraries for data manipulation and analysis such as NumPy cite:[numpy]. For keypoint estimation, MediaPipe cite:[mediapipe] will be used.
 
 [#slr]
 === Sign Language Recognition
@@ -38,7 +38,7 @@ While <<theoretical>> discusses the techniques used within the model, this secti
 [#tools]
 === Explainable Artificial Intelligence Techniques for Sign Language Recognition
 
-Most techniques identified have focused on the translation of gestures into text using deep learning techniques. Though powerful, these techniques provide little insight as to the internal mechanisms used to determine the gesture's meaning and provide feedback. Some studies address this using explainable AI (XAI) techniques. Those that fall under a similar scope as discussed in <<theoretical>> are the works of Kothadiya et al. (2023) and Paudyal et al. cite:[paudyal19].
+Most techniques identified have focused on the translation of gestures into text using deep learning techniques. Though powerful, these techniques provide little insight as to the internal mechanisms used to determine the gesture's meaning and provide feedback. Some studies address this using explainable AI (XAI) techniques. Those that fall under a similar scope as discussed in <<theoretical>> are the works of Kothadiya et al. cite:[kothadiya23] and Paudyal et al. cite:[paudyal19].
 
 Kothadiya et al. cite:[kothadiya23] apply XAI techniques to deep learning models, exposing the areas of the images that were most influential to the model. However, the feedback these provided are limited to a heatmap overlay. While this accomplishes their goals, it does not provide the detailed feedback this study aims to achieve.
 

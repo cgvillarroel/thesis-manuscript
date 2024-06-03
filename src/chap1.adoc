@@ -37,7 +37,7 @@ This study aims to improve upon previous research that develop feedback models f
 
 This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines the correctness of a gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback about its correctness.
 
-Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users.
+Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users. This study will be taking advantage of FSL-105 cite:[tupal23].
 
 [#significance]
 === Significance of the Study

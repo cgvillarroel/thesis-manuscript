@@ -25,24 +25,36 @@ Other than allowing for detailed feedback, the use of feature extraction methods
 [#location]
 ==== Hand Location
 
-To determine the signer's hand location, the frame will be divided into six sections based on the location of the signer's shoulders. The presence of hands will be tracked within each bucket throughout the gesture, resulting in a vector. The resulting vector from the learner's gesture will then be compared to the reference gesture using a cosine function.
+// see src/manuscript.adoc for explanation how to make figures
+:fig-label-bucket: {fig-label} {counter:fig}
+.{fig-label-bucket}. Location bucketing example cite:[paudyal19]
+[#fig-bucket]
+image::../images/bucket.png[location bucketing]
+
+To determine the signer's hand location, the frame will be divided into six sections based on the location of the signer's shoulders. This is because it is the relative positions of the hands that matter, not the absolute cite:[bajernee20]. The presence of hands will be tracked within each bucket throughout the gesture, as seen in <<fig-bucket,{fig-label-bucket}>>, resulting in a vector. The resulting vector from the learner's gesture will then be compared to the reference gesture using a cosine function.
 
 [#movement]
 ==== Hand Movement
 
-To determine the correctness of the hand movement, dynamic time warping between the learner's gesture and the reference gesture will be performed. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths. To address this, longer videos will be down-sampled to keep lengths consistent.
+// see src/manuscript.adoc for explanation how to make figures
+:fig-label-dtw: {fig-label} {counter:fig}
+.{fig-label-dtw}. Illustration of dynamic time warping cite:[tavenard21]
+[#fig-dtw]
+image::../images/dtw.png[euclidean distance vs dynamic time warping]
+
+To determine the correctness of the hand movement, dynamic time warping between the learner's gesture and the reference gesture will be performed. This technique maps two motions to each other based on similar features, as seen in <<fig-dtw,{fig-label-dtw}>>. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths. To address this, longer videos will be down-sampled to keep lengths consistent.
 
 [#shape]
 ==== Hand Shape
 
-Using the pose estimation obtained in <<preprocessing>>, the videos will be cropped to focus on the signer's hands. At this point, Paudyal et al. cite:[paudyal19] use a convolutional neural network for feature extraction. However, this study will take advantage of MediaPipe's gesture recognition framework to estimate the hand shape as well. Similar preprocessing steps to normalize the scale and position of the obtained hand shape will be performed. The similarity of between the learner's gesture and the reference gesture will be determined by the root mean squared error (RMSE).
+Using the pose estimation obtained in <<preprocessing>>, the videos will be cropped to focus on the signer's hands. At this point, Paudyal et al. cite:[paudyal19] use a convolutional neural network for feature extraction. However, this study will take advantage of MediaPipe's gesture recognition framework to estimate the hand shape as well. Similar preprocessing steps to normalize the scale and position of the obtained hand shape will be performed. The similarity of between the learner's gesture and the reference gesture will be determined using metrics such as cosine similarity and root mean squared error (RMSE).
 
 [#face]
 ==== Facial Expressions
 
-Montefalcon et al. cite:[montefalcon23] showed that facial expressions are an important part of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and the RMSE between the learner's gesture and the reference gesture will be calculated.
+Montefalcon et al. cite:[montefalcon23] showed that facial expressions are an important part of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and the similarity between the learner's gesture and the reference gesture will be calculated.
 
 [#assessment]
 === Model Assessment
 
-Because this study will not create an application to showcase the model like Paudyal et al. cite:[paudyal19] did, there will be no real-world learner data points. Instead, this will be simulated by using excess videos from the dataset. Videos that will not be used as reference videos will serve as samples of learners' correct execution, and videos will be randomly assigned to other labels to serve as samples of incorrect execution. The model will then determine whether the signs are correctly executed or not. The accuracy, precision, recall, and F1 scores will be calculated and analyzed.
+Because this study will not create an application to showcase the model like Paudyal et al. cite:[paudyal19] did, there will be no real-world learner data points. Instead, this will be simulated by using excess videos from the dataset by shuffling video pairings. Videos that will not be used as reference videos will serve as samples of learners' correct execution, and videos will be randomly assigned to other labels to serve as samples of incorrect execution. The model will then determine whether the signs are correctly executed or not. The accuracy, precision, recall, and F1 scores will be calculated and analyzed.
