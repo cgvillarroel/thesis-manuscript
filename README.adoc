@@ -38,6 +38,13 @@ A build script is provided for convenience:
 ./build
 ----
 
+Alternatively, if you wanna preview the output without long build times, you can build to HTML:
+
+[source,powershell]
+----
+./build-html
+----
+
 [NOTE]
 ====
 Before trying to do your first build, you should first update MiKTeX by doing the following:
