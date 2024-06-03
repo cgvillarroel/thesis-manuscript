@@ -35,6 +35,7 @@ variables:
     \fancyhead[R]{\thepage}
     \renewcommand{\headrulewidth}{0em}
     }
+    \renewcommand{\bibname}{References}
   include-before: |
     \pagestyle{plain}
     \clearpage
