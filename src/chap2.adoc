@@ -35,6 +35,15 @@ While <<theoretical>> discusses the techniques used within the model, this secti
 [#fslr]
 === Filipino Sign Language Recognition
 
+While research on Filipino Sign Language Recognition is still considered premature, there are several existing studies on Filipino Sign Language that focuses on models that recognize, identify, and translate signs made by FSL users. Different methods were used to develop these models, from using Microsoft Kinect's motion sensors to using Recurrent Neural Network (RNN) models.
+Recent studies on FSLR involves the use of deep learning models such as Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN). CNNs are used on static datasets such as images of the alphabet signs and number signs while RNNs are used in video datasets that contains dynamic signs such as greetings and common phrases. There are also studies that combine the two deep learning models to create a hybrid model that can serve as a combined feature extraction model and recognition model.
+
+Montefalcon et al. cite:[montefalcon21] used a CNN model based on the Residual Network (ResNet) architecture and computer vision to develop a Filipino Sign Language recognition model. Their study used a dataset of static images consisting of numeric and alphabet signs in FSL. Cabutaje et al. cite:[cabutaje23] also used a similar dataset but focused on alphabet recognition. Both studies showed promising results, with Montefalcon’s study producing an 86.7% validation accuracy at 15th epoch and Cabutaje’s producing a 93% validation accuracy. 
+
+Another study by Montefalcon et al. cite:[montefalcon23] focused on the recognition of dynamic signs, which both includes the facial and hand movement made by the signer – among other parameters. They used a RNN (Long Short-Term Memory) and CNN (ResNet architecture) to determine which model performs better in terms of sign language recognition. In addition, they used MediaPipe Holistic from Google to track different features from the video sequences for their feature importance analysis. Similar to their previous study, their models showed promising results, with the ResNet model producing an 87% accuracy and the LSTM model with 94% accuracy. It is worth noting that their feature importance analysis has shown that removal of significant signer’s features such as the signer’s facial components has negatively impacted the performance of the models.
+
+These promising results come with its issues. Both studies by Montefalcon et al. had problems with misclassification of signs. In Montefalcon’s study on static signs, the model confused the signs of the number 2 and number 6 due to its similarity in finger orientation and finger edges. In the study of dynamic sign recognition, the Filipino phrase “Kumusta ka?” was frequently identified as the phrase “Maligayang kaarawan.” This misclassification problem is often blamed on lack of training samples – and it is considered a common difficulty in premature research topics.
+
 [#tools]
 === Explainable Artificial Intelligence Techniques for Sign Language Recognition
 
