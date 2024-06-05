@@ -6,12 +6,18 @@ This chapter details the specific processes involved in achieving the objectives
 [#data]
 === Data Collection
 
-This study will be using a public dataset known as FSL-105. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips.
+This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips.
 
 [#preprocessing]
 === Data Preprocessing
 
-The data described in <<data>> will not be directly used by the model. Instead of processing videos, the model will process pose data estimated from videos. This pose data will be in the form of keypoints, or the locations of the signer's joints within the video. Unlike the work of Paudyal et al. cite:[paudyal19], which relies on PoseNet, this will be done with the use Google's MediaPipe framework. However, this data may still contain noise in the form of varying scale and location introduced by variations in camera location and settings. To account for this, the data will be normalized; joints will be scaled and translated to be a consistent size within the center of the frame.
+// see src/manuscript.adoc for explanation how to make figures
+:fig-label-pose: {fig-label} {counter:fig}
+.{fig-label-pose}. Example pose estimation with MediaPipe cite:[mediapipePose]
+[#fig-pose]
+image::../images/mediapipe_pose.png[MediaPipe pose estimation]
+
+The data described in <<data>> will not be directly used by the model. Instead of processing videos, the model will process pose data estimated from videos, as seen in <<fig-pose,{fig-label-pose}>>. This pose data will be in the form of keypoints, or the locations of the signer's joints within the video. Unlike the work of Paudyal et al. cite:[paudyal19], which relies on PoseNet, this will be done with the use Google's MediaPipe framework. However, this data may still contain noise in the form of varying scale and location introduced by variations in camera location and settings. To account for this, the data will be normalized; joints will be scaled and translated to be a consistent size within the center of the frame.
 
 [#model]
 === Model Development
@@ -27,32 +33,38 @@ Other than allowing for detailed feedback, the use of feature extraction methods
 
 // see src/manuscript.adoc for explanation how to make figures
 :fig-label-bucket: {fig-label} {counter:fig}
-.{fig-label-bucket}. Location bucketing example cite:[paudyal19]
+.{fig-label-bucket}. "`Location bucketing`" example cite:[paudyal19]
 [#fig-bucket]
 image::../images/bucket.png[location bucketing]
 
-To determine the signer's hand location, the frame will be divided into six sections based on the location of the signer's shoulders. This is because it is the relative positions of the hands that matter, not the absolute cite:[bajernee20]. The presence of hands will be tracked within each bucket throughout the gesture, as seen in <<fig-bucket,{fig-label-bucket}>>, resulting in a vector. The resulting vector from the learner's gesture will then be compared to the reference gesture using a cosine function.
+To determine the signer's hand location, the frame will be divided into six sections (dubbed "`buckets`") based on the location of the signer's shoulders. This is because it is the relative positions of the hands that matter--not the absolute positions cite:[bajernee20]. The presence of hands will be tracked within each bucket throughout the gesture, as seen in <<fig-bucket,{fig-label-bucket}>>. Each bucket will be a component of a vector, resulting in a vector with six components. This can be thought of as an arrow "`pointing`" somewhere in a six-dimensional space. The resulting vector from the learner's gesture will then be compared to the reference gesture using cosine similarity, as one of the applications of the cosine function, at a high level, is to determine how similarly two multidimensional vectors are "`pointing`".
 
 [#movement]
 ==== Hand Movement
 
 // see src/manuscript.adoc for explanation how to make figures
 :fig-label-dtw: {fig-label} {counter:fig}
-.{fig-label-dtw}. Illustration of dynamic time warping cite:[tavenard21]
+.{fig-label-dtw}. Illustration of Euclidean distance vs dynamic time warping cite:[tavenard21]
 [#fig-dtw]
-image::../images/dtw.png[euclidean distance vs dynamic time warping]
+image::../images/dtw_vs_euc.png[Euclidean distance vs dynamic time warping]
 
-To determine the correctness of the hand movement, dynamic time warping between the learner's gesture and the reference gesture will be performed. This technique maps two motions to each other based on similar features, as seen in <<fig-dtw,{fig-label-dtw}>>. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths. To address this, longer videos will be down-sampled to keep lengths consistent.
+To determine the correctness of the hand movement, dynamic time warping will be performed between the learner's gesture and the reference gesture. This technique maps two sequences to each other based on similar features, as seen in <<fig-dtw,{fig-label-dtw}>>. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths; to address this, longer videos will be down-sampled to keep lengths consistent.
 
 [#shape]
 ==== Hand Shape
 
-Using the pose estimation obtained in <<preprocessing>>, the videos will be cropped to focus on the signer's hands. At this point, Paudyal et al. cite:[paudyal19] use a convolutional neural network for feature extraction. However, this study will take advantage of MediaPipe's gesture recognition framework to estimate the hand shape as well. Similar preprocessing steps to normalize the scale and position of the obtained hand shape will be performed. The similarity of between the learner's gesture and the reference gesture will be determined using metrics such as cosine similarity and root mean squared error (RMSE).
+// see src/manuscript.adoc for explanation how to make figures
+:fig-label-hand: {fig-label} {counter:fig}
+.{fig-label-hand}. Example of hand keypoint estimation with MediaPipe cite:[mediapipeHand]
+[#fig-hand]
+image::../images/mediapipe_hand.png[MediaPipe gesture estimation]
+
+Using the pose estimation obtained in <<preprocessing>>, the videos will be cropped to focus on the signer's hands. At this point, Paudyal et al. cite:[paudyal19] use a convolutional neural network for feature extraction. However, this study will take advantage of MediaPipe's gesture recognition framework to estimate the hand shape as well, as seen in <<fig-hand,{fig-label-hand}>>. Similar preprocessing steps to normalize the scale and position will be performed. The similarity between the learner's hand shape and the reference hand shape will be determined using metrics such as cosine similarity and root mean squared error (RMSE). Cosine similarity is described in <<location>>, and can be applied here as well--though with more components/dimensions--as the hand shape may be stored as a vector composed of its keypoints' coordinates. RMSE may also be used, as it measures the overall distance between each set of keypoints.
 
 [#face]
 ==== Facial Expressions
 
-Montefalcon et al. cite:[montefalcon23] showed that facial expressions are an important part of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and the similarity between the learner's gesture and the reference gesture will be calculated.
+Montefalcon et al. cite:[montefalcon23] showed that facial expressions are an important part of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and the similarity between the learner's gesture and the reference gesture will be calculated similarly to the <<shape>>.
 
 [#assessment]
 === Model Assessment

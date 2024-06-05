@@ -23,7 +23,7 @@ variables:
     \usepackage{caption}
     \captionsetup[figure]{labelformat=empty}
     \usepackage{titlesec}
-    \titleformat{\chapter}[display]{\centering\normalsize\bfseries}{\vspace{-4em}CHAPTER \Roman{chapter}\\*}{-3.5em}{\MakeUppercase}[]
+    \titleformat{\chapter}[display]{\centering\normalsize\bfseries}{\vspace{-4em}CHAPTER \thechapter\\*}{-3.5em}{\MakeUppercase}[]
     \titleformat{\section}{\normalsize\bfseries}{\thesection\hspace{1em}}{0em}{\MakeUppercase}[]
     \titleformat{\subsection}{\normalsize\bfseries\itshape}{\thesubsection\hspace{1em}}{0em}{\MakeUppercase}[]
     \titlespacing*{\chapter}{0em}{1em}{0em}
