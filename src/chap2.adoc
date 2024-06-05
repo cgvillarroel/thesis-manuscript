@@ -38,9 +38,9 @@ While <<theoretical>> discusses the techniques used within the model, this secti
 [#slr]
 === Sign Language Recognition
 
-Al-Qurishi et al. cite[alqurishi21] mentioned the combination of various features, such as hands and facial regions, can be beneficial in sign language recognition. However, integrating these features can be complex due to the diverse formats of data involved. While hand extraction is crucial for successful sign language recognition, challenges persist in tasks such as hand positions, hand shape and gesture, and movement tracking. 
+Al-Qurishi et al. cite:[alqurishi21] mentioned the combination of various features, such as hands and facial regions, can be beneficial in sign language recognition. However, integrating these features can be complex due to the diverse formats of data involved. While hand extraction is crucial for successful sign language recognition, challenges persist in tasks such as hand positions, hand shape and gesture, and movement tracking. 
 
-Al-Qurishi et al. cite[alqurishi21] consider the factors like the variability in the sizes and shapes of hands and fingers among different signers. Rastgoo et al. cite:[rastgoo21] also introduced the concept of hands potentially holding objects and varying in size based on the distance between the signer and the camera. To address these issues, they have incorporated facial characteristics into the analysis, thereby improving accuracy. This aligns with the findings of Montefalcon et al. cite:[montefalcon21] regarding the enhanced accuracy achieved in sign language recognition by including facial features.
+Al-Qurishi et al. cite:[alqurishi21] consider the factors like the variability in the sizes and shapes of hands and fingers among different signers. Rastgoo et al. cite:[rastgoo21] also introduced the concept of hands potentially holding objects and varying in size based on the distance between the signer and the camera. To address these issues, they have incorporated facial characteristics into the analysis, thereby improving accuracy. This aligns with the findings of Montefalcon et al. cite:[montefalcon21] regarding the enhanced accuracy achieved in sign language recognition by including facial features.
 
 [#fslr]
 === Filipino Sign Language Recognition
