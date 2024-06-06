@@ -21,7 +21,7 @@ While there exist resources for learning FSL, there are no tools that provide fe
 This study intends to answer the following questions:
 
 . What improvements can be made to models meant to provide feedback for sign language learning, specifically in the scope of Filipino Sign Language?
-. What effects would the inclusion of facial features have on the effectiveness of the model?
+. What effects would the inclusion of facial features have on the effectiveness of the model in terms of the model's metrics, such as accuracy, precision, recall, and F1 score?
 
 [#objectives]
 === Research Objectives
@@ -30,7 +30,7 @@ This study aims to improve upon previous research that develop feedback models f
 
 . Develop a model that determines the correctness of Filipino Sign Language gestures performed by learners and provides feedback in the case of errors.
 . Determine the effectiveness of the developed model in terms of statistical metrics such as accuracy, precision, and recall.
-. Determine the effects of including or excluding facial features in the model.
+. Determine the effects of including facial features in the model.
 
 [#scope]
 === Scope and Limitations
