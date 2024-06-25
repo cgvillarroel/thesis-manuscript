@@ -35,20 +35,24 @@ This study aims to improve upon previous research that develop feedback models f
 [#scope]
 === Scope and Limitations
 
-This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines the correctness of a gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback about its correctness.
+This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines the correctness of a gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback about its correctness. This study will be taking advantage of FSL-105 cite:[tupal23].
 
-Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users. This study will be taking advantage of FSL-105 cite:[tupal23].
+// Comment this if we make an app
+Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users.
 
 [#significance]
 === Significance of the Study
 
 This study will benefit the following:
 
-Filipino Deaf Communities.::
-Developing a FSL Recognition model can contribute to bridging the gap between the deaf and hearing communities. The deaf community can be assisted by this technology to improve their ability to communicate to those who do not know FSL.
-
 Technology Developers.::
-Research in FSL can advance the current state of technologies made specifically for it. This can assist in future development of applications and devices that will aid different types of users towards better communication between the deaf and hearing community.
+As this study aims to develop a model to aid in FSL learning, it may be significant to developers whom focus on developing technologies for deaf people. Specifically, with a model that accurately classifies and explains the correctness of signs, FSL learning application developers may take advantage of this model to provide their users valuable detailed feedback.
+
+// Uncomment this if we make an app
+////
+Filipino Deaf Communities.::
+Alongside the development of a model, this study also aims to produce an application that will showcase the capabilities of the model in a user-friendly manner. This proof-of-concept may provide value to those in the Filipino deaf community, as well as those studying FSL, by being a learning aid that provides unique functionality through detailed feedback.
+////
 
 Research and Academic Communities.::
-Research in FSL Recognition is in its premature stages, meaning that it has only started exploring possible solutions to the problem at least a decade ago. Results gathered in this study can help with future research and further advancements to the understanding of FSL and FSL Recognition.
+Research in FSL Recognition is still being explored, and there are fewer literature that study FSL than more popular sign languages like ASL. Results gathered in this study may provide insights to future researchers regarding the intricacies of FSL and the methods surrounding it and its computer-aided recognition.
