@@ -1,0 +1,83 @@
+[#rnd]
+== Results and Discussion
+
+This chapter details the data gathered from following the procedures outlined in <<methodology>>. This includes the data itself as well as 
+
+[#results]
+=== Results
+
+A model was successfully created as described in <<model>> and assessed as described in <<assessment>>. Testing was conducted on a subset of 16 gestures from the FSL-105 dataset cite:[tupal23], in which incorrect pairings were undersampled to prevent a class imbalance. Testing was conducted on a total of 480 samples (latexmath:[16\text{ gestures} \cdot \left(15\text{ correct} + 15\text{ incorrect}\right)]).
+
+:table-label-modules: {table-label} {counter:table}
+.{table-label-modules}. Individual module metrics.
+[#table-modules]
+[%header,cols=6*]
+|===
+s|Module
+s|Threshold
+s|Accuracy
+s|Precision
+s|Recall
+s|F1 Score
+
+h|Location
+>|0.975
+>|69.96%
+>|66.43%
+>|56.89%
+>|72.24%
+
+h|Motion
+>|0.500
+>|60.63%
+>|56.95%
+>|71.82%
+>|68.86%
+
+h|Shape
+>|0.920
+>|58.75%
+>|55.80%
+>|71.63%
+>|67.11%
+
+h|Face
+>|0.995
+>|57.50%
+>|55.29%
+>|68.12%
+>|64.83%
+|===
+
+<<table-modules,{table-label-modules}>> shows the metrics obtained by each individual module when used on the testing data. As the modules simply output a measure of similarity, thresholds must be set to classify correct and incorrect attempts. The thresholds used were experimentally determined prior to testing, with the following values: 0.975 for the hand location module, 0.500 for the arm motion module, 0.920 for the hand shape module, and 0.995 for the facial features module.
+
+:table-label-models: {table-label} {counter:table}
+.{table-label-models}. Model metrics with and without face module.
+[#table-models]
+[%header,cols=5*]
+|===
+s|Model
+s|Accuracy
+s|Precision
+s|Recall
+s|F1 Score
+
+h|Without face
+>|70.42%
+>|75.26%
+>|43.20%
+>|67.28%
+
+h|With face
+>|67.50%
+>|81.82%
+>|33.33%
+>|58.06%
+|===
+
+<<table-models,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-modules,{table-label-modules}>>, combining the modules led to more precise predictions at the cost of worse recall. To determine the impact of including a facial features module, a model which excludes this module was also tested. As seen, the inclusion of a face module gained precision at the cost of all other metrics.
+
+[#discussion]
+=== Discussion
+
+

@@ -5,6 +5,9 @@ Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclope
 :bibtex-order: appearance
 :figure-caption!:
 :fig-label: Fig.
+:table-caption!:
+:table-label: Table
+:stem:
 ifdef::backend-docbook5[:bibtex-format: bibtex]
 ifdef::backend-html5[:toc:]
 
@@ -69,6 +72,8 @@ include::chap1.adoc[]
 include::chap2.adoc[]
 
 include::chap3.adoc[]
+
+include::chap4.adoc[]
 
 ifdef::backend-html5[== References]
 

@@ -22,6 +22,7 @@ variables:
     \setlength\parskip{1em}
     \usepackage{caption}
     \captionsetup[figure]{labelformat=empty}
+    \captionsetup[table]{labelformat=empty}
     \usepackage{titlesec}
     \titleformat{\chapter}[display]{\centering\normalsize\bfseries}{\vspace{-4em}CHAPTER \thechapter\\*}{-3.5em}{\MakeUppercase}[]
     \titleformat{\section}{\normalsize\bfseries}{\thesection\hspace{1em}}{0em}{\MakeUppercase}[]
@@ -46,7 +47,7 @@ variables:
     \let\oldnumberline\numberline
     \renewcommand{\numberline}[1]{\hspace*{-1.5em}}
     \listoffigures
-    % \listoftables
+    \listoftables
     \let\numberline\oldnumberline
     \clearpage
     \pagenumbering{arabic}
