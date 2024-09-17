@@ -6,7 +6,7 @@ This chapter details the data gathered from following the procedures outlined in
 [#results]
 === Results
 
-A model was successfully created as described in <<model>> and assessed as described in <<assessment>>. Testing was conducted on a subset of 16 gestures from the FSL-105 dataset cite:[tupal23], in which incorrect pairings were undersampled to prevent a class imbalance. Testing was conducted on a total of 480 samples (latexmath:[16\text{ gestures} \cdot \left(15\text{ correct} + 15\text{ incorrect}\right)]).
+A model was successfully created as described in <<methodology>>: <<model>> and assessed as described in <<methodology>>: <<assessment>>. Testing was conducted on a subset of 16 gestures from the FSL-105 dataset cite:[tupal23], in which incorrect pairings were undersampled to prevent a class imbalance. Testing was conducted on a total of 480 samples (latexmath:[16\text{ gestures} \cdot \left(15\text{ correct} + 15\text{ incorrect}\right)]).
 
 :table-label-modules: {table-label} {counter:table}
 .{table-label-modules}. Individual module metrics.
@@ -84,4 +84,4 @@ The thresholds set for the modules were experimentally chosen in an attempt to b
 
 As seen in <<table-module-results,{table-label-modules}>>, the individual modules prove to be somewhat capable of classifying whether pairs of videos are of the same gesture or not, achieving decent metrics. Meanwhile, as seen in <<table-model-results,{table-label-models}>>, Combining the modules together achieves greater precision than any individual module, while maintaining decent accuracy, at the cost of decreased recall and F1 score. This shows that combining the modules better limits false positives at the cost of more false negatives.
 
-To determine the effects of the inclusion of the facial features module, a model without the face module was also tested. Compared to individual modules, this model also achieves better precision, while maintaining accuracy and F1 score, at the cost of worse recall. Compared to this, the model which includes the facial features module achieves better precision at the cost of all other metrics.
+To determine the effects of the inclusion of the facial features module, a model without the face module was also tested. Compared to individual modules, this model also achieves better precision, while maintaining accuracy and F1 score, at the cost of worse recall. Compared to this, the model which includes the facial features module achieves better precision at the cost of all other metrics. This shows that the addition of the facial features module further limits false positives at the cost of more false negatives.
