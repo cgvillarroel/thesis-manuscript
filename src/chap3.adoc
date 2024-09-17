@@ -64,7 +64,7 @@ Using the pose estimation obtained in <<preprocessing>>, the videos will be crop
 [#face]
 ==== Facial Expressions
 
-Montefalcon et al. cite:[montefalcon23] showed that facial expressions affect the recognition of Filipino Sign Language. As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and specific keypoints will be selected based on the work of Huang and Huang cite:[huang97]. The similarity between the learner's gesture and the reference gesture will then be calculated similarly to the <<shape>>.
+Montefalcon et al. cite:[montefalcon23] showed that facial expressions affect the recognition of Filipino Sign Language (FSL). As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and specific keypoints will be selected based on the work of Huang and Huang cite:[huang97]. The similarity between the learner's gesture and the reference gesture will then be calculated similarly to the <<shape>>.
 
 [#assessment]
 === Model Assessment

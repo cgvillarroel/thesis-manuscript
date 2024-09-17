@@ -1,7 +1,7 @@
 [#rnd]
 == Results and Discussion
 
-This chapter details the data gathered from following the procedures outlined in <<methodology>>. This includes the data itself as well as 
+This chapter details the data gathered from following the procedures outlined in <<methodology>>. It also discusses insights regarding this data.
 
 [#results]
 === Results
@@ -10,7 +10,7 @@ A model was successfully created as described in <<model>> and assessed as descr
 
 :table-label-modules: {table-label} {counter:table}
 .{table-label-modules}. Individual module metrics.
-[#table-modules]
+[#table-module-results]
 [%header,cols=6*]
 |===
 s|Module
@@ -49,11 +49,11 @@ h|Face
 >|64.83%
 |===
 
-<<table-modules,{table-label-modules}>> shows the metrics obtained by each individual module when used on the testing data. As the modules simply output a measure of similarity, thresholds must be set to classify correct and incorrect attempts. The thresholds used were experimentally determined prior to testing, with the following values: 0.975 for the hand location module, 0.500 for the arm motion module, 0.920 for the hand shape module, and 0.995 for the facial features module.
+<<table-module-results,{table-label-modules}>> shows the metrics obtained by each individual module when used on the testing data. As the modules simply output a measure of similarity, thresholds must be set to classify correct and incorrect attempts. The thresholds used were experimentally determined prior to testing.
 
 :table-label-models: {table-label} {counter:table}
 .{table-label-models}. Model metrics with and without face module.
-[#table-models]
+[#table-model-results]
 [%header,cols=5*]
 |===
 s|Model
@@ -62,22 +62,26 @@ s|Precision
 s|Recall
 s|F1 Score
 
-h|Without face
->|70.42%
->|75.26%
->|43.20%
->|67.28%
-
 h|With face
 >|67.50%
 >|81.82%
 >|33.33%
 >|58.06%
+
+h|Without face
+>|70.42%
+>|75.26%
+>|43.20%
+>|67.28%
 |===
 
-<<table-models,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-modules,{table-label-modules}>>, combining the modules led to more precise predictions at the cost of worse recall. To determine the impact of including a facial features module, a model which excludes this module was also tested. As seen, the inclusion of a face module gained precision at the cost of all other metrics.
+<<table-model-results,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-module-results,{table-label-modules}>>, combining the modules led to more precise predictions at the cost of worse recall. To determine the impact of including a facial features module, a model which excludes this module was also tested. As seen, the inclusion of a face module gained precision at the cost of all other metrics.
 
 [#discussion]
 === Discussion
 
+The thresholds set for the modules were experimentally chosen in an attempt to balance the different metrics. The model works by chaining together modules by only deeming a pairing correct if all modules output that the pairing is correct. Each additional module only identifies more negative samples. Because of this, while it is ideal for each module to achieve high accuracy and precision, it is also important to maintain a high recall to limit the number of false negatives.
 
+As seen in <<table-module-results,{table-label-modules}>>, the individual modules prove to be somewhat capable of classifying whether pairs of videos are of the same gesture or not, achieving decent metrics. Meanwhile, as seen in <<table-model-results,{table-label-models}>>, Combining the modules together achieves greater precision than any individual module, while maintaining decent accuracy, at the cost of decreased recall and F1 score. This shows that combining the modules better limits false positives at the cost of more false negatives.
+
+To determine the effects of the inclusion of the facial features module, a model without the face module was also tested. Compared to individual modules, this model also achieves better precision, while maintaining accuracy and F1 score, at the cost of worse recall. Compared to this, the model which includes the facial features module achieves better precision at the cost of all other metrics.
