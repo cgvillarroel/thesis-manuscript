@@ -6,7 +6,7 @@ This chapter details the specific processes involved in achieving the objectives
 [#data]
 === Data Collection
 
-This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips.
+This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 Filipino Sign Language gestures will be selected as the sample for this study, as these signs are more dynamic compared to the rest of the dataset.
 
 [#preprocessing]
 === Data Preprocessing
@@ -70,7 +70,7 @@ Using the pose estimation obtained in <<preprocessing>>, the videos will be crop
 [#face]
 ==== Facial Features
 
-Montefalcon et al. cite:[montefalcon23] showed that facial features affect the recognition of Filipino Sign Language (FSL). As such, this study introduces the facial expression module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and specific keypoints will be selected based on the work of Huang and Huang cite:[huang97]. The similarity between the learner's gesture and the reference gesture will then be calculated similarly to the <<shape>>.
+Montefalcon et al. cite:[montefalcon23] showed that facial features affect the recognition of Filipino Sign Language (FSL). As such, this study introduces the facial feature module to aid in providing feedback to FSL learners. This module works similarly to the hand shape module. The pose estimation obtained in <<preprocessing>> includes facial features. This data will be normalized, and specific keypoints will be selected based on the work of Huang and Huang cite:[huang97]. The similarity between the learner's gesture and the reference gesture will then be calculated similarly to the <<shape>>.
 
 [#assessment]
 === Model Assessment
