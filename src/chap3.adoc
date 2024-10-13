@@ -1,12 +1,12 @@
 [#methodology]
 == Methodology
 
-This chapter details the specific processes involved in achieving the objectives outlined in <<objectives>>. This study is modeled after the work of Paudyal et al. cite:[paudyal19]. As such, much of this study follows similar methods. However, it also introduces modifications aimed to improve the model, specifically in the context of Filipino Sign Language. Other modifications are also introduced to take advantage of better technologies that have been made available since the publishing of the aforementioned previous work.
+This chapter details the specific processes involved in achieving the objectives outlined in <<objectives>>. This study is modeled after the work of Paudyal et al. cite:[paudyal19]. As such, much of this study follows similar methods. However, it also introduces modifications aimed to improve the model, specifically in the context of Filipino Sign Language (FSL). Other modifications are also introduced to take advantage of better technologies that have been made available since the publishing of the aforementioned previous work.
 
 [#data]
 === Data Collection
 
-This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 Filipino Sign Language gestures will be selected as the sample for this study, as these signs are more dynamic compared to the rest of the dataset.
+This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 FSL gestures will be selected as the sample for testing the model's ability to determine correct and incorrect attempts, as these signs are more dynamic compared to the rest of the dataset. To assess the feedback, a smaller subsample of five FSL gestures will be selected, and the differences between their components will be identified. These differences will be manually labeled by the authors and verified by consultants from Kakamay Movement.
 
 [#preprocessing]
 === Data Preprocessing
@@ -76,3 +76,5 @@ Montefalcon et al. cite:[montefalcon23] showed that facial features affect the r
 === Model Assessment
 
 To assess the effectiveness of the model, the comparison of a reference video and a video of learner's attempt will be simulated by pairing different videos from the dataset. Pairs of different videos of the same gesture will serve as correct attempts, while pairs of videos of different gestures will serve as incorrect attempts. Due to the nature of this pairing, there will be far fewer correct samples than incorrect samples, and incorrect samples will be undersampled to avoid a class imbalance. The model will then determine whether the signs were correctly paired. The accuracy, precision, recall, and F1 scores will be calculated and analyzed.
+
+While these measures assess the ability of the model to determine if two videos are of the same gesture, they do not assess if the incorrect component is correctly identified. To assess the feedback a similar pairing process will be done, and feedback outputted by the model will be compared to another subset of the dataset. A smaller subset of five gestures will be selected, and labels will be made identifying the feedback required. Similar metrics will be used to measure the effectivenesss of the model in this aspect.

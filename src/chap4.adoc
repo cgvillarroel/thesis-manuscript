@@ -77,6 +77,46 @@ h|Without face
 
 <<table-model-results,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-module-results,{table-label-modules}>>, combining the modules led to more precise predictions at the cost of worse recall. To determine the impact of including a facial features module, a model which excludes this module was also tested. As seen, the inclusion of a face module gained precision at the cost of all other metrics.
 
+To assess the feedback of the model, various samples of five gestures were paired in a similar fashion, resulting in 375 samples (15 samples for each possible latexmath:[5 \cdot 4] combinations of gestures). However, this dataset is imbalanced. Of the 20 possible gesture pairings, 14 pairings represented expected "hand location" feedback. Only four pairings represented expected "hand/arm motion" feedback; two pairings represented expected "hand shape" feedback. No samples represented expected "facial expression" feedback.
+
+:table-label-feedback: {table-label} {counter:table}
+.{table-label-feedback}. Model feedback metrics with face module.
+[#table-feedback]
+[%header,cols=4*]
+|===
+s|Component
+s|Precision
+s|Recall
+s|F1 Score
+
+h|None
+>|33.33%
+>|40.00%
+>|36.36%
+
+h|Location
+>|60.00%
+>|64.29%
+>|62.07%
+
+h|Motion
+>|50.00%
+>|50.00%
+>|50.00%
+
+h|Shape
+>|
+>|
+>|
+
+h|Face
+>|
+>|0%
+>|
+|===
+
+<<table-feedback,{table-label-feedback}>> shows the precision, recall, and f1 scores of the model for each of its expected outputs. Due to the imbalance in the dataset, some classes were uncomputable or received metrics of 0%. Due to the lack of samples which warrant facial expression feedback, the inclusion of a facial feature module cannot be assessed.
+
 [#discussion]
 === Discussion
 
@@ -87,3 +127,5 @@ As seen in <<table-module-results,{table-label-modules}>>, the individual module
 To determine the effects of the inclusion of the facial features module, a model without the face module was also tested. Compared to individual modules, this model also achieves better precision, while maintaining accuracy and F1 score, at the cost of worse recall. Compared to this, the model which includes the facial features module achieves better precision at the cost of all other metrics. This shows that the addition of the facial features module further limits false positives at the cost of more false negatives.
 
 While these results prove the model is somewhat effective, they fall short of the results obtained by Paudyal et al. cite:[paudyal19]. This may be due to the use of a different dataset, as well as discrepancies in the processing of the data.
+
+Meanwhile, it is difficult to assess the model's abiliy to classify the warranted feedback due to the highly imbalanced dataset. A majority of the dataset represents samples that warrant location feedback, which leaves the other classes somewhat unreliable and even uncomputable. Due to this imbalance, as seen in <<table-feedback,{table-label-feedback}>>, the model only seems somewhat reliable when it comes to location feedback, with precision, recall, and and F1 score of above 60%. However, this may also be due to the location module individually exhibiting better metrics than the other modules.
