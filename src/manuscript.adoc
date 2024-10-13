@@ -75,6 +75,8 @@ include::chap3.adoc[]
 
 include::chap4.adoc[]
 
+include::chap5.adoc[]
+
 ifdef::backend-html5[== References]
 
 bibliography::[]
