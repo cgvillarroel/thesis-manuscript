@@ -6,7 +6,7 @@ This chapter details the specific processes involved in achieving the objectives
 [#data]
 === Data Collection
 
-This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 FSL gestures will be selected as the sample for testing the model's ability to determine correct and incorrect attempts, as these signs are more dynamic compared to the rest of the dataset. To assess the feedback, a smaller subsample of five FSL gestures will be selected, and the differences between their components will be identified. These differences will be manually labeled by the authors and verified by consultants from Kakamay Movement.
+This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 FSL gestures will be selected as the sample for testing the model's ability to determine correct and incorrect attempts, as these signs are more dynamic compared to the rest of the dataset. To assess the feedback, a smaller subsample of five FSL gestures will be selected, and the differences between their components will be manually identified.
 
 [#preprocessing]
 === Data Preprocessing
