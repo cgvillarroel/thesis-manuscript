@@ -27,7 +27,7 @@ h|Location
 >|56.89%
 >|72.24%
 
-h|Motion
+h|Movement
 >|0.500
 >|60.63%
 >|56.95%
@@ -77,7 +77,7 @@ h|Without face
 
 <<table-model-results,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-module-results,{table-label-modules}>>, combining the modules led to more precise predictions at the cost of worse recall. To determine the impact of including a facial features module, a model which excludes this module was also tested. As seen, the inclusion of a face module gained precision at the cost of all other metrics.
 
-To assess the feedback of the model, various samples of five gestures were paired in a similar fashion, resulting in 375 samples (15 samples for each possible latexmath:[5 \cdot 4] combinations of gestures). However, this dataset is imbalanced. Of the 20 possible gesture pairings, 14 pairings represented expected "hand location" feedback. Only four pairings represented expected "hand/arm motion" feedback; two pairings represented expected "hand shape" feedback. No samples represented expected "facial expression" feedback.
+To assess the feedback of the model, various samples of five gestures were paired in a similar fashion, resulting in 375 samples (15 samples for each possible latexmath:[5 \cdot 4] combinations of gestures). However, this dataset is imbalanced. Of the 20 possible gesture pairings, 14 pairings represented expected "hand location" feedback. Only four pairings represented expected "hand/arm movement" feedback; two pairings represented expected "hand shape" feedback. No samples represented expected "facial expression" feedback.
 
 :table-label-feedback: {table-label} {counter:table}
 .{table-label-feedback}. Model feedback metrics with face module.
@@ -99,7 +99,7 @@ h|Location
 >|64.29%
 >|62.07%
 
-h|Motion
+h|Movement
 >|50.00%
 >|50.00%
 >|50.00%
@@ -128,4 +128,4 @@ To determine the effects of the inclusion of the facial features module, a model
 
 While these results prove the model is somewhat effective, they fall short of the results obtained by Paudyal et al. cite:[paudyal19]. This may be due to the use of a different dataset, as well as discrepancies in the processing of the data.
 
-Meanwhile, it is difficult to assess the model's abiliy to classify the warranted feedback due to the highly imbalanced dataset. A majority of the dataset represents samples that warrant location feedback, which leaves the other classes somewhat unreliable and even uncomputable. With this imbalance in mind, as seen in <<table-feedback,{table-label-feedback}>>, the model seems somewhat reliable when it comes to location feedback, with precision, recall, and and F1 score of above 60%. This may be due to the location module exhibiting the best metrics among all the modules. Among the feedback involving other underrepresented components, feedback involving motion was not far behind, with all metrics at 50%.
+Meanwhile, it is difficult to assess the model's abiliy to classify the warranted feedback due to the highly imbalanced dataset. A majority of the dataset represents samples that warrant location feedback, which leaves the other classes somewhat unreliable and even uncomputable. With this imbalance in mind, as seen in <<table-feedback,{table-label-feedback}>>, the model seems somewhat reliable when it comes to location feedback, with precision, recall, and and F1 score of above 60%. This may be due to the location module exhibiting the best metrics among all the modules. Among the feedback involving other underrepresented components, feedback involving movement was not far behind, with all metrics at 50%.

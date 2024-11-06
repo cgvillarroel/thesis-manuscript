@@ -54,7 +54,7 @@ To determine the signer's hand location, the frame will be divided into six sect
 [#fig-dtw]
 image::../images/dtw_vs_euc.png[Euclidean distance vs dynamic time warping]
 
-To determine the correctness of the hand movement, dynamic time warping will be performed between the learner's gesture and the reference gesture. This technique maps two sequences to each other based on similar features, as seen in <<fig-dtw,{fig-label-dtw}>>. The distance calculated between the two will determine the similarity of the two motions. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths; to address this, longer videos will be down-sampled to keep lengths consistent.
+To determine the correctness of the hand movement, dynamic time warping will be performed between the learner's gesture and the reference gesture. This technique maps two sequences to each other based on similar features, as seen in <<fig-dtw,{fig-label-dtw}>>. The distance calculated between the two will determine the similarity of the two movements. However, before this is performed, this module requires an additional preprocessing step. This module is affected by variations in video lengths; to address this, longer videos will be down-sampled to keep lengths consistent.
 
 [#shape]
 ==== Hand Shape
@@ -75,7 +75,7 @@ Montefalcon et al. cite:[montefalcon23] showed that facial features affect the r
 [#assessment]
 === Model Assessment
 
-The model will be assessed with two tasks: binary classification and multiclass classification. In the binary classification task, the model will compare two videos to determine if they are of the same gesture or not. In the multiclass classification task, the model will compare two videos to determine which component is different between the two (among hand location, hand/arm motion, hand shape, facial expression, and no difference).
+The model will be assessed with two tasks: binary classification and multiclass classification. In the binary classification task, the model will compare two videos to determine if they are of the same gesture or not. In the multiclass classification task, the model will compare two videos to determine which component is different between the two (among hand location, hand/arm movement, hand shape, facial expression, and no difference).
 
 [#binary]
 ==== Binary Classification
