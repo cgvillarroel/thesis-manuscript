@@ -1,12 +1,12 @@
 [#methodology]
 == Methodology
 
-This chapter details the specific processes involved in achieving the objectives outlined in <<objectives>>. This study is modeled after the work of Paudyal et al. cite:[paudyal19]. As such, much of this study follows similar methods. However, it also introduces modifications aimed to improve the model, specifically in the context of Filipino Sign Language (FSL). Other modifications are also introduced to take advantage of better technologies that have been made available since the publishing of the aforementioned previous work.
+This chapter details the specific processes involved in achieving the objectives outlined in <<intro>>: <<objectives>>. This study is modeled after the work of Paudyal et al. cite:[paudyal19]. As such, much of this study follows similar methods. However, it also introduces modifications aimed to improve the model, specifically in the context of Filipino Sign Language (FSL). Other modifications are also introduced to take advantage of better technologies that have been made available since the publishing of the aforementioned previous work.
 
 [#data]
 === Data Collection
 
-This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 FSL gestures will be selected as the sample for testing the model's ability to determine correct and incorrect attempts, as these signs are more dynamic compared to the rest of the dataset. To assess the feedback, a smaller subsample of five FSL gestures will be selected, and the differences between their components will be identified.
+This study will be using a public dataset known as FSL-105 cite:[tupal23]. It contains 105 different Filipino Sign Language gestures and was created by a team from De La Salle University. In total, it consists of 2130 4-second clips. 16 FSL gestures will be selected as the sample for testing the model's ability to determine correct and incorrect attempts, as these signs are more dynamic compared to the rest of the dataset.
 
 [#preprocessing]
 === Data Preprocessing
@@ -75,22 +75,10 @@ Montefalcon et al. cite:[montefalcon23] showed that facial features affect the r
 [#assessment]
 === Model Assessment
 
-The model will be assessed with two tasks: binary classification and multiclass classification. In the binary classification task, the model will compare two videos to determine if they are of the same gesture or not. In the multiclass classification task, the model will compare two videos to determine which component is different between the two (among hand location, hand/arm movement, hand shape, facial expression, and no difference).
+The model will be assessed using a binary classification task. Here, the model will compare two videos to determine if they are of the same gesture or not. To this, videos must be paired up. For each gesture in the subset of 16 gestures described in <<preprocessing>>, a random video will be chosen as a reference video for other videos to be compared to. Then, an equal number of other videos of the same gesture and number of videos of different gestures will be chosen to be compared against the reference video to avoid a class imbalance. Each of these pairings will be a single sample.
 
-[#binary]
-==== Binary Classification
+These samples will be used to find thresholds and assess the model. This will be done through the use of multiple train-test splits through k-folds cross validation to avoid a biased test split. These samples will be shuffled and split into four folds, where for each iteration, one fold will be used for assessing the model, and the rest will be used for finding thresholds.
 
-The model compares two videos, so videos must be paired up. For each gesture in the subset of 16 gestures described in <<preprocessing>>, a random video will be chosen as a reference video for other videos to be compared to. Then, an equal number of other videos of the same gesture and number of videos of different gestures will be chosen to be compared against the reference video to avoid a class imbalance. Each of these pairings will be a single sample.
+Because this study is exploring the use of a new model, it is still unclear how to determine the best thresholds. For the purposes of this study, thresholds are experimentally determined to balance accuracy, precision, and recall. Recall is slightly more prioritized to prevent the prevalence of false negatives. This is because modules will be chained together; other modules may be able to correct false positives, but false negatives cannot be corrected.
 
-These samples will be used to find thresholds and assess the model. This will be done through the use of multiple train-test splits through k-folds cross validation to avoid a biased test split. These samples will be shuffled and split into four folds, where for each iteration, one fold will be used for assessing the model, and the rest will be used for finding thresholds. 
-
-Because this study is exploring the use of a new model, it is still unclear how to determine the best thresholds. For the purposes of this study, thresholds are experimentally determined to balance accuracy, precision, and recall. Recall is slightly more prioritized to prevent the prevalence of false negatives. This is because modules will be chained together; other modules may be able to correct false positives, but false negatives cannot be corrected. 
-
-Once thresholds are found, the test data will be put through the combined modules, and the model output will be compared to the ground truth. This will yield a confusion matrix where metrics such as accuracy, precision, recall, and F1 score can be calculated. 
-
-[#multiclass]
-==== Multiclass Classification
-
-This study introduces the multiclass classification task. Previous work by cite:[paudyal19] only assesses the model’s ability to classify if pairs of videos are of the same gesture or not. The feedback of the model was not assessed.
-
-The multiclass classification task assesses how effectively the model correctly identifies the component which differs between two videos of gestures. As the thresholds are to be found during the binary classification task, those thresholds will be used in this task, and only the test split will be used to assess the model. As the reference for these differences is a limited subset, as described in <<data>>, only pairing samples which contain only the first five gestures will be used. To prevent a class imbalance, random oversampling will be conducted on the classes where differences are present. The samples will be put through the model, and the predicted difference will be compared to a reference table that was generated through observation. Similarly, to assess these predictions, metrics such as accuracy, precision, recall, and F1 score will be noted.
+Once thresholds are found, the test data will be put through the combined modules, and the model output will be compared to the ground truth. This will yield a confusion matrix where metrics such as accuracy, precision, recall, and F1 score can be calculated. To determine the effect of the introduced face module, a version of the model without will also be assessed and compared.

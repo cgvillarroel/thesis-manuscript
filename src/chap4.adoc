@@ -6,13 +6,7 @@ This chapter details the data gathered from following the procedures outlined in
 [#results]
 === Results
 
-A model was successfully created as described in <<methodology>>: <<model>> and assessed as described in <<methodology>>: <<assessment>>. This assessment involves two tasks: a binary classification task and a multiclass classification task.
-
-[#binary-res]
-==== Binary Classification
-
-The sampling methods for the binary classification task is described in <<binary>>. 16 gestures were used for this task. For each of these, a random video was chosen as a reference video for other videos to be compared to. 15 samples, or pairs, were made with a random different video of the same gesture to serve as correct attempts, and 15 samples were made with a random video of a random different gesture to serve as incorrect attempts. In total, 478 samples were used (16 gestures * (15 correct pairings + 15 incorrect pairings) = 480 samples, with two sample outliers).
-
+A model was successfully created as described in <<methodology>>: <<model>> and was assessed as described in <<methodology>>: <<assessment>>. This involves a binary classification task, where the model will predict if two videos are of the same gesture. As such, pairings of videos were used as samples. 16 gestures were used for this task. For each of these, a random video was chosen as a reference video for other videos to be compared to. 15 samples, or pairs, were made with a random different video of the same gesture to serve as correct attempts, and 15 samples were made with a random video of a random different gesture to serve as incorrect attempts. In total, 478 samples were used (16 gestures * (15 correct pairings + 15 incorrect pairings) = 480 samples, with two sample outliers).
 
 :fig-label-locgraph: {fig-label} {counter:fig}
 .{fig-label-locgraph}. Example of threshold lookup graph (Location module).
@@ -63,11 +57,9 @@ image::../images/overall-binary-without-face.png[Binary classification model wit
 
 To provide a basis for comparison with cite:[paudyal19] work, a model without the face module was also evaluated. <<fig-overallbin1,{fig-label-overallbin1}>> shows the performance metrics and the confusion matrix of the model excluding the face module. The model had 71.67% accuracy, 65.82% precision, 88.14% recall, and 75.36% F1 score.
 
-
-
 :table-label-modules: {table-label} {counter:table}
 .{table-label-modules}. Individual module metrics.
-[#table-module-results]
+[#table-modules]
 [%header,cols=6*]
 |===
 s|Module
@@ -106,11 +98,11 @@ h|Face
 >|68.64%
 |===
 
-<<table-module-results,{table-label-modules}>> shows the metrics obtained by each individual module when used on the testing data. As mentioned in <<binary>>, experimental thresholds with high recall are prioritized to reduce the number of false negatives. Each module can be seen to have performed decently as independent modules, with the location performing better than the other modules.
+<<table-modules,{table-label-modules}>> shows the metrics obtained by each individual module when used on the testing data. As mentioned in <<methodology>>: <<assessment>>, experimental thresholds with high recall are prioritized to reduce the number of false negatives. Each module can be seen to have performed decently as independent modules, with the location performing better than the other modules.
 
 :table-label-models: {table-label} {counter:table}
 .{table-label-models}. Model metrics with and without face module.
-[#table-model-results]
+[#table-models]
 [%header,cols=5*]
 |===
 s|Model
@@ -132,7 +124,7 @@ h|Without face
 >|75.36%
 |===
 
-<<table-model-results,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-module-results,{table-label-modules}>>, combining the modules led to better performance metrics overall. The model excluding the face module was also included to determine the impact of including a facial features module, as well as to assess the performance in comparison to the original work of cite:[paudyal19].
+<<table-models,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-modules,{table-label-modules}>>, combining the modules led to better performance metrics overall. The model excluding the face module was also included to determine the impact of including a facial features module, as well as to assess the performance in comparison to the original work of Paudyal et al. cite:[paudyal19].
 
 :table-label-overall-with-face: {table-label} {counter:table}
 .{table-label-overall-with-face}. Model metrics with face across iterations.
@@ -222,107 +214,12 @@ h|Average
 
 The same was done without the face module, the results of which are shown in <<table-overall-without-face, {{table-label-overall-without-face}}>>.
 
-[#multiclass-res]
-==== Multiclass Classification
-
-To assess the feedback of the model, multiclass classification was used. The multiclass classification evaluates the model's effectiveness in correctly identifying the component that differentiates between the two videos of different gestures.
-
-:fig-label-overallmulti: {fig-label} {counter:fig}
-.{fig-label-overallmulti}. Overall multiclass classification model (with face module).
-[#fig-overallmulti]
-image::../images/overall-multiclass-with-face.png[Multiclass classification model with face, scaledwidth=50%]
-
-<<fig-overallmulti,{fig-label-overallmulti}>> shows the confusion matrix for the multiclass classification test for the model.
-
-:fig-label-overallmulti1: {fig-label} {counter:fig}
-.{fig-label-overallmulti1}. Overall multiclass classification model (without face module).
-[#fig-overallmulti1]
-image::../images/overall-multiclass-without-face.png[Multiclass classification model without face, scaledwidth=50%]
-
-<<fig-overallmulti1,{fig-label-overallmulti1}>> shows the confusion matrix for the multiclass classification test for the model excluding the face module.
-
-:table-label-feedback: {table-label} {counter:table}
-.{table-label-feedback}. Model feedback metrics with face module.
-[#table-feedback]
-[%header,cols=4*]
-|===
-s|Component
-s|Precision
-s|Recall
-s|F1 Score
-
-h|None
->|24.00%
->|70.00%
->|36.00%
-
-h|Location
->|69.00%
->|83.00%
->|75.00%
-
-h|Movement
->|
->|
->|
-
-h|Shape
->|
->|0%
->|
-
-h|Face
->|
->|
->|
-|===
-
-<<table-feedback,{table-label-feedback}>> shows the precision, recall, and f1 scores of the model for each of its expected outputs. Due to certain limitations in the dataset, some classes were uncomputable or received metrics of 0%. Due to the lack of samples which warrant facial expression feedback, the inclusion of a facial feature module cannot be assessed.
-
-:table-label-feedback-overall-with-face: {table-label} {counter:table}
-.{table-label-feedback-overall-with-face}. Model feedback metrics with face module.
-[#table-feedback-overall-with-face]
-[%header,cols=4*]
-|===
-s|Component
-s|Precision
-s|Recall
-s|F1 Score
-
-h|None
->|39.44%
->|73.58%
->|51.36%%
-
-h|Location
->|70.90%
->|79.14%
->|74.83%
-
-h|Movement
->|
->|
->|
-
-h|Shape
->|
->|
->|
-
-h|Face
->|
->|
->|
-|===
-
-Similary to <<binary-res>>, to prevent biased samples in the test fold, finding thresholds and testing the model was conducted multiple times using k-folds cross validation. The results discussed thus far have been referring to one iteration of the cross validation. <<table-feedback-overall-with-face,{table-label-feedback-overall-with-face}>> shows the results of all iterations and the average results obtained. No difference was found between this and model without a face module.
-
 [#discussion]
 === Discussion
 
 The thresholds set for the modules were experimentally chosen in an attempt to balance the different metrics. The model works by chaining together modules by only deeming a pairing correct if all modules output that the pairing is correct. Each additional module only identifies more negative samples. Because of this, while it is ideal for each module to achieve high accuracy and precision, it is also important to maintain a high recall to limit the number of false negatives.
 
-As seen in Table 1, only the location module seems to be somehow capable of classifying the difference between a video of gesture to another. Meanwhile, as seen in Table 2, combining all the four modules together achieves better performance metrics compared to the performance of the individual modules. This shows that combining the modules can create a better performing model overall.
+As seen in <<table-modules,{table-label-modules}>>, only the location module seems to be somehow capable of classifying the difference between a video of gesture to another. Meanwhile, as seen in <<table-models,{table-label-models}>>, combining all the four modules together achieves better performance metrics compared to the performance of the individual modules. This shows that combining the modules can create a better performing model overall.
 
 To determine the effects of the inclusion of the facial features module, a model without the face module was also tested. Compared to individual modules, this model also achieves a better overall performance. Compared to the model which includes the face module, there is a marginal decrease in the overall performance metrics. According to the confusion matrices, the model including the face module was able to correct four samples from the model without the face module.
 
