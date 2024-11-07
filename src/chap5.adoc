@@ -5,7 +5,7 @@ This chapter details the final outcomes of the study. This includes addressing t
 
 === Conclusion
 
-Sign languages are not well-known in the Philippines, and this study aims to address the issue by developing and evaluating a model that can be used in learning applications. This model aims to assess the execution of a sign and provide feedback regarding mistakes and takes into account facial features, which have been proven to be important for recognizing Filipino Sign Language (FSL). This model works by combining several feature extraction methods to obtain measures of similarity, which are then compared to thresholds that are set experimentally.
+Sign languages are not well-known in the Philippines, and this study aims to address the issue by developing and evaluating a model, which has been called "FSLR-Tutor", that can be used in learning applications. This model aims to assess the execution of a sign and provide feedback regarding mistakes and takes into account facial features, which have been proven to be important for recognizing Filipino Sign Language (FSL). This model works by combining several feature extraction methods to obtain measures of similarity, which are then compared to thresholds that are set experimentally.
 
 The developed model proved to be decent, achieving an accuracy of 67.35%, precision of 66.48%, and recall of 70.22%. To assess the effects of the inclusion of the facial features module, the facial features module was removed and assess as well. This model achieved an accuracy of 66.73%, precision of 66.53%, and recall of 74.29% showing that the inclusion of the facial features module has a minimal impact on the effectiveness of the model as it was implemented in this study.
 
