@@ -205,3 +205,6 @@ To determine the effects of the inclusion of the facial features module, a model
 
 While these results prove the model is somewhat effective, they fall short of the results obtained by Paudyal et al. cite:[paudyal19]. This may be due to the use of a different dataset, as well as discrepancies in the processing of the data. Some of the gestures that Paudyal et al. cite:[paudyal19] used in their work are somewhat more static in nature than dynamic. The gestures selected in this study are greetings and phrases, which are more dynamic thus more complicated to process. Paudyal’s work also includes a significantly larger sample size compared to the present study. 
 
+Other modules also had their limitations. The motion module as an individual module is seen to be less effective than it is expected to be. This could be explained by the reduced effectiveness of the dynamic time warping algorithm as the length of the time series increases.
+
+The hand shape module also faced challenges but showed potential for further improvement. Paudyal et al. cite:[paudyal19] originally utilized CNNs in their study.  CNNs can be difficult to apply effectively to small datasets since they are typically data-intensive models designed to learn complex patterns from large amounts of data. This study diverged from the typical use of CNNs due to the limited size of the dataset.
