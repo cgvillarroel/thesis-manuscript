@@ -179,7 +179,7 @@ h|Average
 To prevent biased samples in the test fold, finding thresholds and testing the model was conducted multiple times using k-folds cross validation. The results discussed thus far have been referring to one iteration of the cross validation. <<table-overall-with-face,{table-label-overall-with-face}>> shows the results of all iterations and the average results obtained.
 
 :table-label-overall-without-face: {table-label} {counter:table}
-.{table-label-overall-without-face}. Model metrics with face across iterations.
+.{table-label-overall-without-face}. Model metrics without face across iterations.
 [#table-overall-without-face]
 [%header,cols=5*]
 |===
