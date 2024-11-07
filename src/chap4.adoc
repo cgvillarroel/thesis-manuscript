@@ -241,7 +241,6 @@ image::../images/overall-multiclass-without-face.png[Multiclass classification m
 
 <<fig-overallmulti1,{fig-label-overallmulti1}>> shows the confusion matrix for the multiclass classification test for the model excluding the face module.
 
-
 :table-label-feedback: {table-label} {counter:table}
 .{table-label-feedback}. Model feedback metrics with face module.
 [#table-feedback]
@@ -280,6 +279,43 @@ h|Face
 
 <<table-feedback,{table-label-feedback}>> shows the precision, recall, and f1 scores of the model for each of its expected outputs. Due to certain limitations in the dataset, some classes were uncomputable or received metrics of 0%. Due to the lack of samples which warrant facial expression feedback, the inclusion of a facial feature module cannot be assessed.
 
+:table-label-feedback-overall-with-face: {table-label} {counter:table}
+.{table-label-feedback-overall-with-face}. Model feedback metrics with face module.
+[#table-feedback-overall-with-face]
+[%header,cols=4*]
+|===
+s|Component
+s|Precision
+s|Recall
+s|F1 Score
+
+h|None
+>|39.44%
+>|73.58%
+>|51.36%%
+
+h|Location
+>|70.90%
+>|79.14%
+>|74.83%
+
+h|Movement
+>|
+>|
+>|
+
+h|Shape
+>|
+>|
+>|
+
+h|Face
+>|
+>|
+>|
+|===
+
+Similary to <<binary-res>>, to prevent biased samples in the test fold, finding thresholds and testing the model was conducted multiple times using k-folds cross validation. The results discussed thus far have been referring to one iteration of the cross validation. <<table-feedback-overall-with-face,{table-label-feedback-overall-with-face}>> shows the results of all iterations and the average results obtained. No difference was found between this and model without a face module.
 
 [#discussion]
 === Discussion
