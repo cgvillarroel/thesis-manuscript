@@ -33,10 +33,10 @@ This study intends to answer the following questions:
 [#objectives]
 === Research Objectives
 
-This study aims to improve upon previous research that develop feedback models for sign language learners, specifically in the scope of Filipino Sign Language. Specifically, it aims to:
+This study aims to improve upon previous research that develop feedback models for sign language learners, specifically in the scope of Filipino Sign Language (FSL). Specifically, it aims to:
 
-. Develop a model that determines the correctness of Filipino Sign Language gestures performed by learners and provides feedback in the case of errors.
-. Determine the effectiveness of the developed model in terms of statistical metrics such as accuracy, precision, and recall.
+. Develop a model that determines if two FSL gestures are executed similarly or not and provides feedback in the case of differences.
+. Determine the effectiveness of the developed model at determining if two FSL gestures are executed similarly in terms of statistical metrics such as accuracy, precision, and recall.
 . Determine the effects of including facial features in the model.
 
 [#scope]
