@@ -331,7 +331,7 @@ h|Average
 <<table-location-average,{table-label-location-average}>>, <<table-motion-average,{table-label-motion-average}>>, <<table-shape-average,{table-label-shape-average}>>, and <<table-face-average,{table-label-face-average}>> show the thresholds used and metrics obtained for each module for each iteration. It also shows the average metrics across all iterations.
 
 :table-label-overall-with-face: {table-label} {counter:table}
-.{table-label-overall-with-face}. Model metrics with face across iterations.
+.{table-label-overall-with-face}. Model metrics with face module across iterations.
 [#table-overall-with-face]
 [%header,cols=5*]
 |===
@@ -375,7 +375,7 @@ h|Average
 <<table-overall-with-face,{table-label-overall-with-face}>> shows the results of combining all module across all iterations and the average results obtained.
 
 :table-label-overall-without-face: {table-label} {counter:table}
-.{table-label-overall-without-face}. Model metrics without face across iterations.
+.{table-label-overall-without-face}. Model metrics without face module across iterations.
 [#table-overall-without-face]
 [%header,cols=5*]
 |===
