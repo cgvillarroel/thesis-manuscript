@@ -42,7 +42,7 @@ This study aims to improve upon previous research that develop feedback models f
 [#scope]
 === Scope and Limitations
 
-This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines the correctness of a gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback about its correctness. This study will be taking advantage of FSL-105 cite:[tupal23].
+This study does not aim to create a model that translates Filipino Sign Language gestures into text. Instead, it determines if a gesture is executed similarly to a reference gesture. The fundamental difference is that it does not attempt to extract meaning; it already knows the gesture the learner is attempting, and simply provides feedback regarding their difference. This study will be taking advantage of FSL-105 cite:[tupal23].
 
 // Comment this if we make an app
 Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], it only aims to create a model. It will not attempt to develop an application that utilizes and showcases the model. As such, assessments of the model will not include qualitative feedback from users.
@@ -53,7 +53,7 @@ Though this study is modeled after the work of Paudyal et al. cite:[paudyal19], 
 This study will benefit the following:
 
 Technology Developers.::
-As this study aims to develop a model to aid in FSL learning, it may be significant to developers whom focus on developing technologies for deaf people. Specifically, with a model that accurately classifies and explains the correctness of signs, FSL learning application developers may take advantage of this model to provide their users valuable detailed feedback.
+As this study aims to develop a model to aid in FSL learning, it may be significant to developers whom focus on developing technologies for deaf people. Specifically, with a model that can both accurately determine if two gestures are executed similarly and accurately identify differences, FSL learning application developers may take advantage of this model to provide their users valuable detailed feedback.
 
 // Uncomment this if we make an app
 ////
