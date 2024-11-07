@@ -134,6 +134,93 @@ h|Without face
 
 <<table-model-results,{table-label-models}>> shows the metrics achieved by combining the modules. Compared to the individual modules seen in <<table-module-results,{table-label-modules}>>, combining the modules led to better performance metrics overall. The model excluding the face module was also included to determine the impact of including a facial features module, as well as to assess the performance in comparison to the original work of cite:[paudyal19].
 
+:table-label-overall-with-face: {table-label} {counter:table}
+.{table-label-overall-with-face}. Model metrics with face across iterations.
+[#table-overall-with-face]
+[%header,cols=5*]
+|===
+s|
+s|Accuracy
+s|Precision
+s|Recall
+s|F1 Score
+
+h|Iteration 1
+>|63.03%
+>|64.38%
+>|72.31%
+>|68.12%
+
+h|Iteration 2
+>|66.66%
+>|58.28%
+>|86.79%
+>|69.70%
+
+h|Iteration 3
+>|59.66%
+>|59.21%
+>|72.58%
+>|65.22%
+
+h|Iteration 4
+>|73.33%
+>|68.00%
+>|86.44%
+>|76.12%
+
+h|Average
+>|65.67%
+>|62.47%
+>|79.53%
+>|69.79%
+|===
+
+To prevent biased samples in the test fold, finding thresholds and testing the model was conducted multiple times using k-folds cross validation. The results discussed thus far have been referring to one iteration of the cross validation. <<table-overall-with-face,{table-label-overall-with-face}>> shows the results of all iterations and the average results obtained.
+
+:table-label-overall-without-face: {table-label} {counter:table}
+.{table-label-overall-without-face}. Model metrics with face across iterations.
+[#table-overall-without-face]
+[%header,cols=5*]
+|===
+s|
+s|Accuracy
+s|Precision
+s|Recall
+s|F1 Score
+
+h|Iteration 1
+>|62.18%
+>|62.20%
+>|78.46%
+>|69.39%
+
+h|Iteration 2
+>|65.00%
+>|56.63%
+>|88.68%
+>|69.12%
+
+h|Iteration 3
+>|61.34%
+>|59.30%
+>|82.26%
+>|68.92%
+
+h|Iteration 4
+>|71.67%
+>|65.82%
+>|88.14%
+>|75.36%
+
+h|Average
+>|65.05%
+>|60.99%
+>|84.39%
+>|70.70%
+|===
+
+The same was done without the face module, the results of which are shown in <<table-overall-without-face, {{table-label-overall-without-face}}>>.
 
 [#multiclass-res]
 ==== Multiclass Classification
