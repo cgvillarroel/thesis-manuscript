@@ -19,7 +19,12 @@ write-host "Done"
 
 # pandoc escapes latex in docbooks & ieee is called ieeetr in bibtex
 write-host -nonewline "Tweaking LaTeX file... `t`t`t"
-(get-content build/manuscript.tex).replace("\{", "{").replace("\}", "}").replace("\textbackslash ", "\").replace("ieee", "ieeetr") | set-content build/manuscript.tex
+(get-content build/manuscript.tex).
+	replace("\{", "{").
+	replace("\}", "}").
+	replace("\textbackslash ", "\").
+	replace("ieee", "ieeetr").
+	replace("\begin{figure}", "\begin{figure}[H]")| set-content build/manuscript.tex
 write-host "Done"
 
 # BUILD LATEX

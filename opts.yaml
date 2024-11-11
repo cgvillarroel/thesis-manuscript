@@ -20,6 +20,8 @@ variables:
     \setmainfont{Arial}
     \setlength\parindent{0.5in}
     \setlength\parskip{1em}
+    \usepackage[none]{hyphenat}
+    \usepackage{float}
     \usepackage{caption}
     \captionsetup[figure]{labelformat=empty}
     \captionsetup[table]{labelformat=empty}

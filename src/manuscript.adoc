@@ -4,7 +4,7 @@ Chase Villarroel <cgvillarroel@student.apc.edu.ph>; Aliyah Kirstie Lopez <aclope
 :bibtex-style: ieee
 :bibtex-order: appearance
 :figure-caption!:
-:fig-label: Fig.
+:fig-label: Figure
 :table-caption!:
 :table-label: Table
 :stem:

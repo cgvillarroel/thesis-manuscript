@@ -1,7 +1,7 @@
 [#rnd]
 == Results and Discussion
 
-This chapter details the data gathered from following the procedures outlined in <<methodology>>. It also discusses insights regarding this data.
+This chapter details the data gathered by following the procedures outlined in <<methodology>>. It also discusses insights regarding this data.
 
 [#results]
 === Results
@@ -33,7 +33,7 @@ Multiple experimental thresholds were tested on the location module across four 
 [#fig-motionmod]
 image::../images/motion-module.png[Performance metrics and confusion matrix for motion module, scaledwidth=50%]
 
-<<fig-motionmod,{fig-label-motionmod}>> shows the performance metrics and the confusion matrix for the optimal threshold set for the motion module. The experimental threshold set at 0.5 yielded the following performance scores: 49.17% accuracy, 49.17% precision, 100% recall, and an F1 score of 65.92%. Further explanation on the confusion matrix results will be addressed in <<discussion>>.
+<<fig-motionmod,{fig-label-motionmod}>> shows the performance metrics and the confusion matrix for the optimal threshold set for the motion module. The experimental threshold set at 0.5 yielded the following performance scores: 49.17% accuracy, 49.17% precision, 100% recall, and an F1 score of 65.92%. Further explanation of the confusion matrix results will be addressed in <<discussion>>.
 
 :fig-label-shapemod: {fig-label} {counter:fig}
 .{fig-label-shapemod}. Performance metrics and confusion matrix for shape module for one iteration.
